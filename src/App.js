@@ -3,8 +3,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      // insert navbar with component calls here
-    </div>
+<p>yeah its sam</p>    </div>
   );
 }
 

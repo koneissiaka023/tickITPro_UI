@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Provider store={store}>
+        <Provider>
           <Navbar />
           <Routes>
             <Route exact path="" element={<LandingPage />} />

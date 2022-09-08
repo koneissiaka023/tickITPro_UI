@@ -7,6 +7,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+<<<<<<< HEAD
       <BrowserRouter>
         <Provider store={store}>
           <Navbar />
@@ -15,6 +16,9 @@ function App() {
           </Routes>
         </Provider>
       </BrowserRouter>
+=======
+
+>>>>>>> db1b7469beed48c7e04a15fbbbc3f8a47dedaec5
     </div>
   );
 }

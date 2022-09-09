@@ -10,7 +10,6 @@ export default function Login() {
     const emailInput = useRef();
     const passwordInput = useRef();
     const dispatch = useDispatch();
-    //const id = useSelector
     const [loginStatus, setLoginStatus] = useState(); // use state default value is undefined
 
 

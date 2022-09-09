@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Provider } from "react-redux";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import LandingPage from "./components/LandingPage/landingpage";
@@ -10,11 +11,14 @@ import DepartmentEditor from "./components/Department/departmentEditor";
 import SubjectEditor from "./components/Subject/subjectEditor";
 import Navbar from "./components/LandingPage/navbar";
 import store from "./common/store/store";
+=======
+>>>>>>> 8ede508c96d4c9bfd01f54225d05c6225d32ddd4
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+<<<<<<< HEAD
       <BrowserRouter>
         <Provider store={store}>
           <Navbar />
@@ -30,6 +34,9 @@ function App() {
           </Routes>
         </Provider>
       </BrowserRouter>
+=======
+      <p>yeah its sam</p>    
+>>>>>>> 8ede508c96d4c9bfd01f54225d05c6225d32ddd4
     </div>
   );
 }

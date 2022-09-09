@@ -61,6 +61,10 @@ return(
     <div></div>
 
     <label>Department:</label>
+    {/*<departmentContext.Provider value={[departments, setDepartments]}>
+        {departments === undefined || <DepartmentDropdownData />}
+</departmentContext.Provider>*/}
+
     <select>
         <option value="HR">HR</option>
         <option value="IT">IT</option>

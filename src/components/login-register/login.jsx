@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { tickITProClient } from "../../common/remote/tickitpro-client";
 import { loginStore } from "./loginSlice";
@@ -10,6 +10,7 @@ export default function Login() {
     const emailInput = useRef();
     const passwordInput = useRef();
     const dispatch = useDispatch();
+    //const id = useSelector
     const [loginStatus, setLoginStatus] = useState(); // use state default value is undefined
 
 
@@ -25,7 +26,7 @@ export default function Login() {
 
             window.localStorage.setItem("token", response.headers.authorization);
             dispatch(loginStore(response.data));
-            navigate("/auth");
+            navigate("/dashboard");
         } catch (error) {
             console.log(error.response.data);
             if (error.response.status === 404) {

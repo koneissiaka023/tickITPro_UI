@@ -15,7 +15,7 @@ export default function Navbar() {
                     <Link to="/settings">
                         <button>Settings</button>
                     </Link>
-                    <Link to="/ticket">
+                    <Link to="/dashboard">
                         <button>TickITPro Dashboard</button>
                     </Link>
                 </>

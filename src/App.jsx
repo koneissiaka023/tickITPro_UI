@@ -1,8 +1,6 @@
 import { Provider } from "react-redux";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "./components/login-register/login";
-import Register from "./components/login-register/register";
 import LandingPage from "./components/LandingPage/landingpage";
 import Settings from "./components/Settings/settings";
 import TicketDashboard from "./components/Ticket/ticketDashboard";
@@ -15,14 +13,17 @@ import Navbar from "./components/LandingPage/navbar";
 import store from "./common/store/store";
 
 import './App.css';
+import { Provider } from "react-redux";
+
+
 
 function App() {
   return (
     <div className="App">
 
       <BrowserRouter>
-        <Provider store={store}>
-          <Navbar />
+      <Provider store={store}>
+        
           <Routes>
             <Route exact path="" element={<LandingPage />} />
             <Route path="settings" element={<Settings />} />
@@ -32,8 +33,10 @@ function App() {
             <Route path="user" element={<UserEditor />} />
             <Route path="department" element={<DepartmentEditor />} />
             <Route path="subject" element={<SubjectEditor />} />
+            <Route path="register" element={<Register></Register>}/>
+        
           </Routes>
-        </Provider>
+          </Provider>
       </BrowserRouter>
     </div>
   );

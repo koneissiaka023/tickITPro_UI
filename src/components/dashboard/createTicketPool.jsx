@@ -24,5 +24,11 @@ export default function CreateTicketPool(){
         }
     }
 
+    const formFunction ={
+        description: function(event){
+            setFormData({})
+        }
+    }
+
 
 }

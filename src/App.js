@@ -1,6 +1,5 @@
+import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "./components/login-register/login";
-import Register from "./components/login-register/register";
 import LandingPage from "./components/LandingPage/landingpage";
 import Settings from "./components/Settings/settings";
 import TicketDashboard from "./components/Ticket/ticketDashboard";

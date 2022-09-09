@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { Provider } from "react-redux";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-=======
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/login-register/login";
 import Register from "./components/login-register/register";
->>>>>>> 38a22784c994f40a39ee90735061892295b9cbbe
 import LandingPage from "./components/LandingPage/landingpage";
 import Settings from "./components/Settings/settings";
 import TicketDashboard from "./components/Ticket/ticketDashboard";
@@ -17,14 +13,13 @@ import DepartmentEditor from "./components/Department/departmentEditor";
 import SubjectEditor from "./components/Subject/subjectEditor";
 import Navbar from "./components/LandingPage/navbar";
 import store from "./common/store/store";
-=======
->>>>>>> 8ede508c96d4c9bfd01f54225d05c6225d32ddd4
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-<<<<<<< HEAD
+
       <BrowserRouter>
         <Provider store={store}>
           <Navbar />
@@ -40,9 +35,6 @@ function App() {
           </Routes>
         </Provider>
       </BrowserRouter>
-=======
-      <p>yeah its sam</p>    
->>>>>>> 8ede508c96d4c9bfd01f54225d05c6225d32ddd4
     </div>
   );
 }

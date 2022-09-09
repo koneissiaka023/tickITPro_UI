@@ -14,8 +14,7 @@ export default function Register(){
     
     })
 
-<<<<<<< HEAD
-=======
+
     async function register(r){
         r.preventDefault();
         try{
@@ -28,8 +27,6 @@ export default function Register(){
         }
     }
 
-
->>>>>>> f603112b3a29c528e2eb1b10dc5d846eb6919d1d
 
 return(
 <>  
@@ -59,16 +56,19 @@ return(
     <label>Password:</label>
     <input
         class="registration"
-        placeholder="janedoe123"
+        placeholder="Password"
     />
     <div></div>
 
     <label>Department:</label>
     <select>
-        <option value="HR"></option>
-        <option value="IT"></option>
+        <option value="HR">HR</option>
+        <option value="IT">IT</option>
     </select>
+    <div></div>
+    <button onClick={register}>Register</button>
 </form>
+
 </>
 
 );

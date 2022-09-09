@@ -11,7 +11,7 @@ import SubjectEditor from "./components/Subject/subjectEditor";
 import Navbar from "./components/LandingPage/navbar";
 import store from "./common/store/store";
 import './App.css';
-import { Provider } from "react-redux";
+
 
 
 
@@ -30,7 +30,7 @@ function App() {
             <Route path="user" element={<UserEditor />} />
             <Route path="department" element={<DepartmentEditor />} />
             <Route path="subject" element={<SubjectEditor />} />
-            <Route path="register" element={<Register></Register>}/>
+            
         
           </Routes>
           </Provider>

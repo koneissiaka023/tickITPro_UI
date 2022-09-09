@@ -66,8 +66,9 @@ return(
         <option value="IT">IT</option>
     </select>
     <div></div>
-    <button onClick={register}>Register</button>
+    <button onClick={register} on>Register</button>
 </form>
+    
 
 </>
 

@@ -11,7 +11,6 @@ import DepartmentEditor from "./components/Department/departmentEditor";
 import SubjectEditor from "./components/Subject/subjectEditor";
 import Navbar from "./components/LandingPage/navbar";
 import store from "./common/store/store";
-import { Provider } from "react-redux";
 import './App.css';
 
 

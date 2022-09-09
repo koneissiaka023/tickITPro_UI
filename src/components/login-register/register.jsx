@@ -34,28 +34,28 @@ return(
     <img ></img>
     <label>Email:</label>
     <input
-        class="registration"
+        className="registration"
         placeholder="example@mail.com"    
     />
     <div></div>
 
     <label>First Name:</label>
     <input
-        class="registration"
+        className="registration"
         placeholder="Jane"
     />
     <div></div>
 
     <label>Last Name:</label>
     <input
-        class="registration"
+        className="registration"
         placeholder="Doe"
     /> 
     <div></div> 
 
     <label>Password:</label>
     <input
-        class="registration"
+        className="registration"
         placeholder="Password"
     />
     <div></div>
@@ -66,9 +66,8 @@ return(
         <option value="IT">IT</option>
     </select>
     <div></div>
-    <button onClick={register} on>Register</button>
+    <button onClick={register}>Register</button>
 </form>
-    
 
 </>
 

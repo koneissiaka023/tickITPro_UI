@@ -18,9 +18,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Provider store={store}>
           <Routes>
             <Route exact path="" element={<LandingPage />} />
-<<<<<<< HEAD
             <Route path="settings" element={<Settings />} />
             <Route path="ticket" element={<TicketDashboard />} />
             <Route path="tickitpro-editor" element={<TickITProEditor />} />
@@ -28,15 +28,9 @@ function App() {
             <Route path="user" element={<UserEditor />} />
             <Route path="department" element={<DepartmentEditor />} />
             <Route path="subject" element={<SubjectEditor />} />
-=======
-            <Route path="register" element={<Register></Register>}/>
->>>>>>> f603112b3a29c528e2eb1b10dc5d846eb6919d1d
           </Routes>
+        </Provider>
       </BrowserRouter>
-<<<<<<< HEAD
-=======
-
->>>>>>> f603112b3a29c528e2eb1b10dc5d846eb6919d1d
     </div>
   );
 }

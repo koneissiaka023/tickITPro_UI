@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
 //    const {email, admin, itpro} = useSelector((state) => state.loginSlice);
-    const [email, admin, itpro] = ["cb@mail.com",true,true];
+    const [email, admin, itpro] = ["hc@mail.com",true,true];
 
     return (
         <nav>

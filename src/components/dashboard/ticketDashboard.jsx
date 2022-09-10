@@ -12,7 +12,7 @@ export default function Dashboard() {
             Tickets you create will be submitted under the account: {email}
         </p>
         <CreateTicketPool />
-        {/* <TicketPoolTable /> */}
+        {<TicketPoolTable />}
     </>
     );
 }

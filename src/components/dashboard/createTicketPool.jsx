@@ -76,13 +76,13 @@ export default function CreateTicketPool() {
                 <label>SubjectId:</label>
                 <textarea class="ticket" placeholder="i.e enter subject ID" onChange={formFunctions.subjectId} />
                 <ticketCreationContext.Provider value={[formData,setFormData]}>
-                    <SubjectDropDown />
+                    {/*<SubjectDropDown />*/}
                 </ticketCreationContext.Provider>
                 <br />
 
                 <input type="hidden" id="prioritySelect" class="ticket" value=""></input>
 
-                {/*<AddTicketToPool ticket={formData} /> */}
+                {<AddTicketToPool ticket={formData} /> }
             </form>
 
             <button onClick={submitTicket}>Submit Ticket</button>

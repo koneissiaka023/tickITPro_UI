@@ -9,7 +9,7 @@ import { sendTicket } from "./ticketPoolSlice";
 export default function CreateTicketPool() {
     AuthCheck(false);
 
-    const tickets = useSelector((state) => state.ticketPoolSlice.tickets);
+    const tickets = useSelector((state) => state.AddTicketToPool);
 
     const [formData, setFormData] = useState({
         description: "",
@@ -26,7 +26,7 @@ export default function CreateTicketPool() {
     async function submitTickets() {
         try {
             addAuthToken();
-            const response = await tickITProClient.post("/ticket", tickets);
+            const response = await tickITProClient.post("/ticket/multi", tickets);
             console.log(response.data);
         } catch (error) {
             console.log(error.response.data);
@@ -50,7 +50,7 @@ export default function CreateTicketPool() {
 
     return (
         <>
-            <form>
+            <form onSubmit={defaultSub}>
                 <label>Description:</label>
                 <textarea class="ticket" placeholder="i.e describe your issue" onChange={formFunctions.description} />
                 <br />
@@ -72,11 +72,11 @@ export default function CreateTicketPool() {
                 <div>
                     <label>Status:</label>
                     <input type="radio" id="techRadio1" name="status" value="PENDING" onChange={formFunctions.status} />
-                    <label>Default</label>
+                    <label>PENDING</label>
                     <input type="radio" id="techRadio2" name="status" value="CONFIRMED" onChange={formFunctions.status} />
-                    <label>LowPriority</label>
+                    <label>CONFIRMED</label>
                     <input type="radio" id="techRadio3" name="status" value="RESOLVED" onChange={formFunctions.status} />
-                    <label>HighPriority</label>
+                    <label>RESOLVED</label>
                 </div>
 
                 <input type="hidden" id="prioritySelect" class="ticket" value=""></input>

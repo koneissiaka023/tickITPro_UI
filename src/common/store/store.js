@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import loginSlice from "../../components/login-register/loginSlice";
-import departmentSlice from "../../components/Department/departmentSlice";
+import TicketPoolSlice from "../../components/dashboard/ticketPoolSlice";
 
-const reducer = combineReducers({loginSlice,departmentSlice});
+const reducer = combineReducers({loginSlice, TicketPoolSlice});
 const store = configureStore({reducer});
 export default store;

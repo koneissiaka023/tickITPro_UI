@@ -20,4 +20,5 @@ export default function TicketTableData(){
             )
         })
     return <tbody>{ticketArray}</tbody>
+    return <option value={departmentArray}>{departmentArray}</option>
 }   

@@ -5,7 +5,6 @@ import LandingPage from "./components/LandingPage/landingpage";
 import Settings from "./components/Settings/settings";
 import UserDashboard from "./components/dashboard/ticketDashboard";
 import ITProDashboard from "./components/Ticket/tickITProEditor";
-import AvailableTickets from "./components/Ticket/ticketPool";
 import AdminUserEditor from "./components/User/userEditor";
 import AdminDepartmentEditor from "./components/Department/departmentEditor";
 import AdminSubjectEditor from "./components/Subject/subjectEditor";
@@ -13,6 +12,7 @@ import Navbar from "./components/LandingPage/navbar";
 import store from "./common/store/store";
 import './App.css';
 import TicketTable from "./components/Ticket/tickets";
+import AvailableTickets from "./components/Ticket/availableTickets";
 
 
 
@@ -32,7 +32,7 @@ function App() {
             <Route path="admin-user-editor" element={<AdminUserEditor />} /> {/* AdminUserEditor (Admins can change User Role or Delete Users) */}
             <Route path="admin-department-editor" element={<AdminDepartmentEditor />} /> {/* AdminDepartmentEditor (Admins can create/update/delete Departments in the system) */}
             <Route path="admin-subject-editor" element={<AdminSubjectEditor />} /> {/* AdminSubjectEditor (Admins can create/update/delete Subjects in the system) */}
-            <Route path="tickets" element={ <TicketTable />} />
+            {/* <Route path="tickets" element={ <TicketTable />} /> */}
           </Routes>
         </Provider>
       </BrowserRouter>

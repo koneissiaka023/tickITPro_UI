@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import CreateTicketPool from "./createTicketPool";
 import TicketPoolTable from "./ticketPoolTable";
 
-export default function Dashboard() {
+export default function UserDashboard() {
     const email = useSelector((state) => state.loginSlice.email);
 
     return (

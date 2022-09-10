@@ -93,7 +93,7 @@ export default function Dashboard() {
                 <AddTicketToPool ticket={formData} />
             </form>
 
-            <button onClick={submitTickets}>Send Pool</button>
+            <button onClick={submitTickets}>Submit Ticket</button>
             
         </>
     );

@@ -22,13 +22,13 @@ export default function Register(){
         // setFormData({...formData, avatar: `https://avatars.dicebear.com/api/bottts/${formData.email}.svg`})
         try{
             console.log(formData);
-            await tickITProClient.post("/user", formData);
-            setMessage('User was successfully created!');
+            const response = await tickITProClient.post("/user", formData);
+            setMessage(`User was successfully created! ${response.data.userId}`);
         } catch (error){
             console.log(error);
 
             if(error.response.status === 400){
-                setMessage('Could not register user: ${error.response.data}');
+                setMessage(`Could not register user: ${error.response.data}`);
             }
         }
     }

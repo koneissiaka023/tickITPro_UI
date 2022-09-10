@@ -1,6 +1,6 @@
 import { useEffect, createContext, useState } from "react"
 import { tickITProClient } from "../../common/remote/tickitpro-client"
-import ticketTableData from "./ticketTableData"
+import ticketTableData from "../dashboard/ticketPoolTableData"
 
 export const ticketContext = createContext()
 

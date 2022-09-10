@@ -9,5 +9,5 @@ export default function AddTicketToPool(props){
     function addToPool(){
         dispatch(addTicketStore(ticket))
     }
-    //return <button onclick = {addToPool}>Add ticket to the Pool</button>
+    return <button onclick = {addToPool}>Add ticket to the Pool</button>
 }

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { TicketTableData } from "./ticketData";
+import { TicketTableData } from "../Ticket/ticketData";
 
 export default function TicketPool() {
  

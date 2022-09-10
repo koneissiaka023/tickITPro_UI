@@ -3,10 +3,10 @@ import {createSlice} from "@reduxjs/toolkit"
 
 const initialState = {
     ticketNumber: 0,
-    cards: []
+    tickets: []
 }
 
-const cardPoolSlice = createSlice({
+const ticketPoolSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
@@ -18,11 +18,11 @@ const cardPoolSlice = createSlice({
             for(let i = 0; i < state.tickets.length; i ++){
                 if (i === index) state.tickets.splice(i, 1) 
             }
-            state.ticket--;
+            state.ticketNumber--;
         }
     }
 })
 
-export default ticketPoolSlice.reducers
+export default ticketPoolSlice.reducer
 
-export const {addTicketStore, removeTicket, sendTicket} = cardPoolSlice.actions
+export const {addTicketStore, removeTicket, sendTicket} = ticketPoolSlice.actions

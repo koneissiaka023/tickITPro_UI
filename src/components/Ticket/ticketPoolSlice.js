@@ -18,7 +18,7 @@ const ticketPoolSlice = createSlice({
             for(let i = 0; i < state.tickets.length; i++){
                 if (i === index) state.tickets.splice(i,1)
             }
-            tickets.ticketNumber--;
+            state.ticketNumber--;
         },
         clearTickets(state){
             state.tickets =[]

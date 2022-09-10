@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { tickITProClient } from "../../common/remote/tickitpro-client.js";
-import TicketTableData from "./ticketData.jsx";
+import { TicketTableData } from "./ticketData.jsx";
 import {
     Button,
     FormControlLabel,
@@ -13,7 +13,8 @@ import {
     TableRow,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import { creationRenderContext } from "./ticketHome";
+import { creationRenderContext } from "./ticketDashboard.jsx";
+
 
 export const ticketContext = createContext();
 

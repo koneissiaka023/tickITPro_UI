@@ -8,7 +8,7 @@ export default function DepartmentDropdownData(props) {
 
     function renderDepartmentOption(o) {
         return(
-            <option value={o.departmentId}>
+            <option key={o.departmentId} value={o.departmentId}>
                 {o.departmentName}
             </option>
         )

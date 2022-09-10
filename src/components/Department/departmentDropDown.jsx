@@ -23,11 +23,11 @@ export default function DepartmentDropDown() {
     }
 
     return (
-    <select>
-        <departmentContext.Provider value={[departments, setDepartments]}>
-            {departments === undefined || < DepartmentDropdownData/>}
-        </departmentContext.Provider>
-    </select>
+        <select name="departmentDropdown" id="departmentDropdown">
+            <departmentContext.Provider value={[departments, setDepartments]}>
+                {departments === undefined || < DepartmentDropdownData/>}
+            </departmentContext.Provider>
+        </select>
     );
 
 }

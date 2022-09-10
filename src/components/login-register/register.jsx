@@ -16,7 +16,7 @@ export default function Register(){
 
     async function register(r){
         r.preventDefault();
-        setFormData({...formData, avatar: `https://avatars.dicebear.com/api/bottts/${formData.email}.svg`})
+        // setFormData({...formData, avatar: `https://avatars.dicebear.com/api/bottts/${formData.email}.svg`})
         try{
             await tickITProClient.post("/register", formData);
             setMessage('User was successfully created!');
@@ -61,7 +61,7 @@ return (
     />
     <div></div>
 
-    <label>Department:</label>
+    <label for="departmentDropdown">Department:</label>
     <DepartmentDropDown />
     <div></div>
     <button onClick={register}>Register</button>

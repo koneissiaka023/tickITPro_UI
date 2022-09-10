@@ -21,10 +21,18 @@ const loginSlice = createSlice({
             state.id = id;
 
             console.log(state);
-        }
-    }
+        },
+        logoutStore(state){
+            state.email = initialState.email;
+            state.admin = initialState.admin;
+            state.itpro = initialState.itpro;
+            state.id = 1;
+
+            console.log(state);
+        },
+    },
 });
 
 export default loginSlice.reducer;
 
-export const {loginStore} = loginSlice.actions;
+export const {loginStore, logoutStore} = loginSlice.actions;

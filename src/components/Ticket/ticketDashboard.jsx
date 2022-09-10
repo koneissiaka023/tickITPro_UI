@@ -1,3 +1,6 @@
+import AddTicketToPool from "./createTicket"
+import TicketTable from "./tickets"
+
 export default function TicketDashboard(){
     const ticketId = useSelector((state) => state.loginSlice.ticketId)
 
@@ -7,8 +10,8 @@ export default function TicketDashboard(){
             <p>
                 Tickets
             </p>
-            <CreateTicketPool></CreateTicketPool>
-            <CreateTicketTable></CreateTicketTable>
+            <AddTicketToPool></AddTicketToPool>
+            <TicketTable></TicketTable>
         </>
     )
 }

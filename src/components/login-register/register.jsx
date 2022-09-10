@@ -20,6 +20,7 @@ export default function Register(){
         try{
             await tickITProClient.post("/register", formData);
             setMessage('User was successfully created!');
+            navigate("/user-dashboard");
         } catch (error){
             if(error.response.status === 400){
                 setMessage('Could not register user: ${error.response.data}');

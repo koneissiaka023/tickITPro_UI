@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import AuthCheck from "../../common/authCheck/authCheck";
 import addAuthToken from "../../common/remote/addAuthHeader";
 import { tickITProClient } from "../../common/remote/tickitpro-client";
+import SubjectDropDown from "../Subject/subjectDropdown";
 import AddTicketToPool from "./addTicketToPool";
 import { sendTicket } from "./ticketPoolSlice";
 
@@ -60,7 +61,7 @@ export default function CreateTicketPool() {
 
             <form onSubmit={defaultSub}>
                 <label>Description:</label>
-                <textarea class="ticket" placeholder="i.e describe your issue" onChange={formFunctions.description} />
+                <textarea className="ticket" placeholder="i.e describe your issue" onChange={formFunctions.description} />
                 <br />
 
                 <div>
@@ -73,19 +74,18 @@ export default function CreateTicketPool() {
                     <label>HIGH_PRIORITY</label>
                 </div>
 
-                <label>SubjectId:</label>
-                <textarea class="ticket" placeholder="i.e enter subject ID" onChange={formFunctions.subjectId} />
+                <label>Subject:</label>
                 <ticketCreationContext.Provider value={[formData,setFormData]}>
                     <SubjectDropDown />
                 </ticketCreationContext.Provider>
                 <br />
 
-                <input type="hidden" id="prioritySelect" class="ticket" value=""></input>
+                <input type="hidden" id="prioritySelect" className="ticket" value=""></input>
 
                 {/*<AddTicketToPool ticket={formData} /> */}
+                <button onClick={submitTicket}>Submit Ticket</button>
             </form>
-
-            <button onClick={submitTicket}>Submit Ticket</button>
+            <p>{message}</p>
             
         </>
     );

@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import addAuthToken from "../../common/remote/addAuthHeader";
 import { tickITProClient } from "../../common/remote/tickitpro-client";
 import { ticketCreationContext } from "../dashboard/createTicketPool";
 import SubjectDropDownData from "./subjectDropdownData";
@@ -16,6 +17,7 @@ export default function SubjectDropDown() {
 
     async function findAll() {
         try {
+            addAuthToken();
             const response = await tickITProClient.get("/subject");
             console.log(response.data);
             setSubjects(response.data);

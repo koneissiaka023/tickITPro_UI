@@ -6,13 +6,16 @@ export default function SubjectDropDownData() {
 
     function renderSubjectOption(o) {
         return(
-            <option key={o.subjectId} value={o.subjectId}>
-                {}
+            <option key={o.id} value={o.id}>
+                {o.name}
             </option>
         )
     }
 
-    return(
-        <></>
-    );
+    let subjectArray;
+    subjectArray = subjects.map((o) => {
+        return renderSubjectOption(o);
+    })
+
+    return subjectArray;
 }

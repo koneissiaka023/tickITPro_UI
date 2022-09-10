@@ -42,6 +42,9 @@ export default function Navbar() {
                     <Link to="/admin-subject-editor">
                         <button>Admin Subject Editor</button>
                     </Link>
+                    <Link to="/tickets">
+                        <button>tickets</button>
+                    </Link>
                 </>
             )}
         </nav>

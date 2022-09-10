@@ -32,7 +32,7 @@ export default function TicketTable() {
 
     async function findAll() {
         try {
-            const response = await tickITProClient.get("/ticket");
+            const response = await tickITProClient.get("/tickets");
             console.log(response.data);
             setTickets(response.data);
         } catch (error) {

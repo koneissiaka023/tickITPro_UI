@@ -1,13 +1,14 @@
-import {Ticket, TicketActions, TicketContent, Grid, Rating, Chip, Typography } from "@mui/material"
+import {Card, CardActions, CardContent, Grid, Rating, Chip, Typography } from "@mui/material"
 import { useContext } from "react"
 import { useSelector } from "react-redux"
 import AddTicketToPool from "./createTicket"
-import Avatar from "./avatar"
+//import Avatar from "@mui/material"
+import { createAvatar } from '@dicebear/avatars';
+import * as style from '@dicebear/avatars-bottts-sprites';
 import { ticketContext } from "./tickets"
 import DeleteTicket from "./deleteTicket"
 
-
-export function TicketTableData(props){
+export default function TicketTableData(props){
     
     const [tickets] = useContext(ticketContext)
     const email = useSelector((state) => state.loginSlice.email)
@@ -16,10 +17,11 @@ export function TicketTableData(props){
     
     return(
         <Grid item md={3}>
-        <Ticket sx={{ maxWidth: 275, display: "flex", minHeight: 325 }} variant="outlined">
-            <TicketContent>
+        <Card sx={{ maxWidth: 275, display: "flex", minHeight: 325 }} variant="outlined">
+            <CardContent>
                 <Typography textAlign="right" variant="h5" width="100%">
-                    <Avatar id={o.userId}></Avatar>
+                    {/* <Avatar id={o.userId}></Avatar> */}
+                    <img src={"https://avatars.dicebear.com/api/bottts/:"+o.userId+".svg"} alt="Logo" />
                 </Typography>
                 <Typography variant="h5">Description</Typography>
                 <hr></hr>
@@ -38,12 +40,12 @@ export function TicketTableData(props){
 
                 <Chip variant="outlined" label={`Status: ${o.status}`}></Chip>
 
-                <TicketActions>
+                <CardActions>
                     <AddTicketToPool ticket={{ description: o.description, points: o.points, tech: o.tech, status: o.status }} />
                     {email === o.userEmail && <DeleteTicket id={o.ticketId} />}
-                </TicketActions>
-            </TicketContent>
-        </Ticket>
+                </CardActions>
+            </CardContent>
+        </Card>
         </Grid>
         )
     }   

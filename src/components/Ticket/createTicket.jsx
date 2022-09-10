@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { toast } from "@mui/material"
+import { Alert } from "@mui/material"
 import { addTicketStore } from "./ticketPoolSlice"
 
 export default function AddTicketToPool(props){
@@ -9,7 +9,7 @@ export default function AddTicketToPool(props){
 
     function addToPool(){
         dispatch(addTicketStore(ticket))
-        toast.success("Card successfully added")
+        Alert.success("Card successfully added")
     }
 
     return (

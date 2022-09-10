@@ -25,7 +25,7 @@ export default function Login() {
 
             window.localStorage.setItem("token", response.headers.authorization);
             dispatch(loginStore(response.data));
-            navigate("/dashboard");
+            navigate("/user-dashboard");
         } catch (error) {
             console.log(error.response.data);
             if (error.response.status === 404) {

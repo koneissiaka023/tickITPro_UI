@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { nabnakClient } from "../../common/remote/nabnak-client";
+import { tickITProClient } from "../../common/remote/tickitpro-client.js";
 import TicketTableData from "./ticketData.jsx";
 import {
     Button,
@@ -31,7 +31,7 @@ export default function TicketTable() {
 
     async function findAll() {
         try {
-            const response = await ticketpro-client.get("/ticket");
+            const response = await tickITProClient.get("/ticket");
             console.log(response.data);
             setTickets(response.data);
         } catch (error) {

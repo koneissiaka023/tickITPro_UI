@@ -1,4 +1,5 @@
 import { useState } from "react"
+import addAuthToken from "../../common/remote/addAuthHeader";
 import { tickITProClient } from "../../common/remote/tickitpro-client"
 
 export default function DeleteTicket(props){
@@ -6,9 +7,9 @@ export default function DeleteTicket(props){
 
     const[deleted, setDeleted] = useState()
 
-    async function deleteCard(){
+    async function deleteTicket(){
         try{
-            addAuthToken()
+            addAuthToken();
             await tickITProClient.delete('/ticket/${ticketId}')
         } catch(error){
             setDeleted('Failed to delete ${ticketId} with ${error.response.data}')

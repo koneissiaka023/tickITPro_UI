@@ -11,7 +11,6 @@ export default function Register(){
         lastName: "",
         password: "",
         department: ""
-    
     })
 
 

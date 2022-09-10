@@ -26,7 +26,7 @@ export default function CreateTicketPool() {
     async function submitTickets() {
         try {
             addAuthToken();
-            const response = await tickITProClient.post("/ticket/multi", tickets);
+            const response = await tickITProClient.post("/ticket", tickets);
             console.log(response.data);
         } catch (error) {
             console.log(error.response.data);

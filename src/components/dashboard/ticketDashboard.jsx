@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import TicketPoolTable from "./ticketPoolTable";
-import CreateTicketPool from "./createTicketPool";
+// import TicketPoolTable from "./ticketPoolTable";
+// import CreateTicketPool from "./createTicketPool";
 
 export default function Dashboard() {
     const email = useSelector((state) => state.loginSlice.email);
@@ -11,8 +11,8 @@ export default function Dashboard() {
             <p>
                 Tickets you created will be submitted under the account: {email}
             </p>
-            <CreateTicketPool />
-            <TicketPoolTable />
+            {/* <CreateTicketPool /> */}
+            {/* <TicketPoolTable /> */}
         </>
     );
 }

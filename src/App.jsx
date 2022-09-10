@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import LandingPage from "./components/LandingPage/landingpage";
 import Settings from "./components/Settings/settings";
-import UserDashboard from "./components/Ticket/ticketDashboard";
+import UserDashboard from "./components/dashboard/ticketDashboard";
 import ITProDashboard from "./components/Ticket/tickITProEditor";
 import AvailableTickets from "./components/Ticket/ticketPool";
 import AdminUserEditor from "./components/User/userEditor";

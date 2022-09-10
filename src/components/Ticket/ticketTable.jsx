@@ -1,6 +1,6 @@
 import { useEffect, createContext, useState } from "react"
 import { tickITProClient } from "../../common/remote/tickitpro-client"
-import ticketTableData from "../dashboard/ticketPoolTableData"
+import TicketTableData from "./ticketTableData"
 
 export const ticketContext = createContext()
 
@@ -47,7 +47,7 @@ export default function TicketTable (){
                         </thead>
                         {}                                                                        
                         <ticketContext.Provider value = {[tickets, setTickets]}>
-                            {tickets === undefined || <ticketTableData></ticketTableData>} 
+                            {tickets === undefined || <TicketTableData></TicketTableData>} 
                         </ticketContext.Provider>                          
                     
                     </table>

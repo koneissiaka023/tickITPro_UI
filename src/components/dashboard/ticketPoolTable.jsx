@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import TicketPoolTableData from "../Ticket/ticketPoolTableData";
+import TicketPoolTableData from "./ticketPoolTableData";
 
 export default function TicketPoolTable() {
     const { tickets, ticketNumber } = useSelector((state) => state.ticketPoolSlice);

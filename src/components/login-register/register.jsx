@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { tickITProClient } from "../../common/remote/tickitpro-client";
+import DepartmentDropDown from "../Department/departmentDropDown";
 
 export default function Register(){
     const navigate = useNavigate();
-    const [Message, setMessage] = useState();
+    const [message, setMessage] = useState();
     const [formData, setFormData] = useState({
         email: "",
         firstName: "",
@@ -12,7 +13,6 @@ export default function Register(){
         password: "",
         department: ""
     })
-
 
     async function register(r){
         r.preventDefault();
@@ -29,7 +29,7 @@ export default function Register(){
     }
 
 
-return(
+return (
 <>  
     <form> 
         {/* <img ></img> */}
@@ -62,14 +62,7 @@ return(
     <div></div>
 
     <label>Department:</label>
-    {/*<departmentContext.Provider value={[departments, setDepartments]}>
-        {departments === undefined || <DepartmentDropdownData />}
-</departmentContext.Provider>*/}
-
-    <select>
-        <option value="HR">HR</option>
-        <option value="IT">IT</option>
-    </select>
+    <DepartmentDropDown />
     <div></div>
     <button onClick={register}>Register</button>
 </form>

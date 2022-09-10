@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Logout from "../login-register/logout";
 
 export default function Navbar() {
     const {email, admin, itpro} = useSelector((state) => state.loginSlice);
@@ -8,9 +9,8 @@ export default function Navbar() {
         <nav>
             {email === "anon" || (
                 <>
-                    <Link to="/">
-                        <button>Logout</button>
-                    </Link>
+                    
+                    <Logout></Logout>
                     <Link to="/settings">
                         <button>Settings</button>
                     </Link>

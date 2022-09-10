@@ -26,11 +26,11 @@ const loginSlice = createSlice({
             state.email = initialState.email;
             state.admin = initialState.admin;
             state.itpro = initialState.itpro;
-            state.id = initialState.id;
+            state.id = 1;
 
             console.log(state);
-        }
-    }
+        },
+    },
 });
 
 export default loginSlice.reducer;

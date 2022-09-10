@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AuthCheck from "../../common/authCheck/authCheck";
 import addAuthToken from "../../common/remote/addAuthHeader";
@@ -6,16 +6,19 @@ import { tickITProClient } from "../../common/remote/tickitpro-client";
 import AddTicketToPool from "./addTicketToPool";
 import { sendTicket } from "./ticketPoolSlice";
 
-export default function CreateTicketPool() {
-    AuthCheck(false);
+export const ticketCreationContext = createContext();
 
-    const tickets = useSelector((state) => state.AddTicketToPool);
+export default function CreateTicketPool() {
+    {/* AuthCheck(false); */}
+    const email = useSelector((state) => state.loginSlice.email);
+    const [message, setMessage] = useState();
+
+    {/* const tickets = useSelector((state) => state.AddTicketToPool); */}
 
     const [formData, setFormData] = useState({
         description: "",
         priority: "DEFAULT",
-        subject: "",
-        status: "PENDING",
+        subjectId: ""
     });
     const [submit, setSubmit] = useState(true);
 
@@ -23,13 +26,20 @@ export default function CreateTicketPool() {
         e.preventDefault();
     }
 
-    async function submitTickets() {
+    async function submitTicket(e) {
+        e.preventDefault();
         try {
             addAuthToken();
-            const response = await tickITProClient.post("/ticket/multi", tickets);
+            console.log(formData);
+            const response = await tickITProClient.post("/ticket", formData);
             console.log(response.data);
+            setMessage(`Ticket has been successfully submitted! ${response.data.ticketId}`);
         } catch (error) {
             console.log(error.response.data);
+
+            if(error.response.status === 400){
+                setMessage(`Could not create ticket: ${error.response.data}`);
+            }
         }
     }
 
@@ -40,16 +50,14 @@ export default function CreateTicketPool() {
         priority: function (event) {
             setFormData({ ...formData, priority: event.target.value });
         },
-        subject: function (event) {
-            setFormData({ ...formData, subject: event.target.value });
-        },
-        status: function (event) {
-            setFormData({ ...formData, status: event.target.value });
-        },
+        subjectId: function (event) {
+            setFormData({ ...formData, subjectId: event.target.value });
+        }
     };
 
     return (
         <>
+
             <form onSubmit={defaultSub}>
                 <label>Description:</label>
                 <textarea class="ticket" placeholder="i.e describe your issue" onChange={formFunctions.description} />
@@ -58,33 +66,27 @@ export default function CreateTicketPool() {
                 <div>
                     <label>Priority:</label>
                     <input type="radio" id="techRadio1" name="priority" value="DEFAULT" onChange={formFunctions.priority} />
-                    <label>Default</label>
+                    <label>DEFAULT</label>
                     <input type="radio" id="techRadio2" name="priority" value="LOW_PRIORITY" onChange={formFunctions.priority} />
-                    <label>LowPriority</label>
+                    <label>LOW_PRIORITY</label>
                     <input type="radio" id="techRadio3" name="priority" value="HIGH_PRIORITY" onChange={formFunctions.priority} />
-                    <label>HighPriority</label>
+                    <label>HIGH_PRIORITY</label>
                 </div>
 
                 <label>SubjectId:</label>
-                <textarea class="ticket" placeholder="i.e enter subject ID" onChange={formFunctions.subject} />
+                <textarea class="ticket" placeholder="i.e enter subject ID" onChange={formFunctions.subjectId} />
+                <ticketCreationContext.Provider value={[formData,setFormData]}>
+                    <SubjectDropDown />
+                </ticketCreationContext.Provider>
                 <br />
 
-                <div>
-                    <label>Status:</label>
-                    <input type="radio" id="techRadio1" name="status" value="PENDING" onChange={formFunctions.status} />
-                    <label>PENDING</label>
-                    <input type="radio" id="techRadio2" name="status" value="CONFIRMED" onChange={formFunctions.status} />
-                    <label>CONFIRMED</label>
-                    <input type="radio" id="techRadio3" name="status" value="RESOLVED" onChange={formFunctions.status} />
-                    <label>RESOLVED</label>
-                </div>
-
                 <input type="hidden" id="prioritySelect" class="ticket" value=""></input>
-                <input type="hidden" id="statusSelect" class="ticket" value=""></input>
 
-                <AddTicketToPool ticket={formData} />
+                {/*<AddTicketToPool ticket={formData} /> */}
             </form>
-            <button onClick={submitTickets}>Send Pool</button>
+
+            <button onClick={submitTicket}>Submit Ticket</button>
+            
         </>
     );
 }

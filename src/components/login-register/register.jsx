@@ -7,7 +7,6 @@ import DepartmentDropDown from "../Department/departmentDropDown";
 export const registerContext = createContext();
 
 export default function Register(){
-    const navigate = useNavigate();
     const [message, setMessage] = useState();
     const [formData, setFormData] = useState({
         email: "",
@@ -15,11 +14,11 @@ export default function Register(){
         lastName: "",
         password: "",
         departmentId: ""
-    })
+    });
 
     async function register(r){
         r.preventDefault();
-        // setFormData({...formData, avatar: `https://avatars.dicebear.com/api/bottts/${formData.email}.svg`})
+        setFormData({...formData, avatar: `https://avatars.dicebear.com/api/bottts/${formData.email}.svg`})
         try{
             console.log(formData);
             const response = await tickITProClient.post("/user", formData);

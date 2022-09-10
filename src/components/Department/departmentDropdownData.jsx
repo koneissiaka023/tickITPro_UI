@@ -1,8 +1,10 @@
 import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { departmentContext } from "./departmentDropDown";
 
 export default function DepartmentDropdownData(props) {
     const [departments] = useContext(departmentContext);
+
 
     function renderDepartmentOption(o) {
         return(
@@ -16,4 +18,6 @@ export default function DepartmentDropdownData(props) {
     departmentArray = departments.map((o) => {
         return renderDepartmentOption(o);
     })
+
+    return departmentArray;
 }

@@ -16,6 +16,7 @@ export default function Register(){
 
     async function register(r){
         r.preventDefault();
+        setFormData({...formData, avatar: `https://avatars.dicebear.com/api/bottts/${formData.email}.svg`})
         try{
             await tickITProClient.post("/register", formData);
             setMessage('User was successfully created!');
@@ -29,27 +30,27 @@ export default function Register(){
 
 return(
 <>  
-<form> 
-    <img ></img>
-    <label>Email:</label>
-    <input
-        className="registration"
-        placeholder="example@mail.com"    
-    />
-    <div></div>
+    <form> 
+        {/* <img ></img> */}
+        <label>Email:</label>
+        <input
+            className="registration"
+            placeholder="example@mail.com"    
+        />
+        <div></div>
 
-    <label>First Name:</label>
-    <input
-        className="registration"
-        placeholder="Jane"
-    />
-    <div></div>
+        <label>First Name:</label>
+        <input
+            className="registration"
+            placeholder="Jane"
+        />
+        <div></div>
 
-    <label>Last Name:</label>
-    <input
-        className="registration"
-        placeholder="Doe"
-    /> 
+        <label>Last Name:</label>
+        <input
+            className="registration"
+            placeholder="Doe"
+        /> 
     <div></div> 
 
     <label>Password:</label>

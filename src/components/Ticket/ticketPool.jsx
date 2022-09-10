@@ -1,3 +1,6 @@
+import { useSelector } from "react-redux"
+import { TicketTableData } from "./ticketData";
+
 export default function TicketPool() {
  
     const {tickets, ticketId} = useSelector((state) => state.ticketPoolSlice)
@@ -6,7 +9,7 @@ export default function TicketPool() {
         <>
             <h1>Ticket Pool: {ticketId}</h1>
         
-        <TicketPoolData tickets ={tickets}></TicketPoolData>
+        <TicketTableData tickets={tickets}></TicketTableData>
         </>
     );
 }

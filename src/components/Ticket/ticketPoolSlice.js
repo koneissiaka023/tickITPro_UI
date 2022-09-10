@@ -16,13 +16,13 @@ const ticketPoolSlice = createSlice({
         removeTicket(state,action){
             const index = action.payload
             for(let i = 0; i < state.tickets.length; i++){
-                if (i === index) state.tickets.splice(i,1)
+                if (i === index) state.tickets.splice(i,1);
             }
             state.ticketNumber--;
         },
         clearTickets(state){
-            state.tickets =[]
-            state.ticketNumber = 0
+            state.tickets =[];
+            state.ticketNumber = 0;
         }
     }
 });

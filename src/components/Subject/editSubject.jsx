@@ -17,10 +17,6 @@ export default function EditSubject() {
         name: ""
     });
 
-    useEffect(() => {
-        console.log("effect invoked inside of EditSubject");
-    }, [creation]);
-
     async function updateSubject(s) {
         s.preventDefault();
         try {
@@ -65,7 +61,7 @@ export default function EditSubject() {
         <>
             <form>
                 <subjectEditorContext.Provider value={[]}>
-                    <subjectDropdownContext.Provider value={[formData,setFormData]}>
+                    <subjectDropdownContext.Provider value={[formData,setFormData,creation]}>
                         <SubjectDropDown />
                     </subjectDropdownContext.Provider>
                 </subjectEditorContext.Provider>

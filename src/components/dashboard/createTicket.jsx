@@ -79,7 +79,7 @@ export default function CreateTicket() {
                 </div>
 
                 <label>Subject:</label>
-                <ticketCreationContext.Provider>
+                <ticketCreationContext.Provider value={[]}>
                     <subjectDropdownContext.Provider value={[formData,setFormData]}>
                         <SubjectDropDown/>
                     </subjectDropdownContext.Provider>

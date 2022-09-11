@@ -17,6 +17,8 @@ export default function EditSubject() {
         name: ""
     });
 
+
+
     async function updateSubject(s) {
         s.preventDefault();
         try {
@@ -74,6 +76,7 @@ export default function EditSubject() {
                 <button onClick={createSubject}>Create Subject</button>
                 <button onClick={deleteSubject}>Delete Subject</button>
             </form>
+            <p>{creation}</p>
         </>
     );
 }

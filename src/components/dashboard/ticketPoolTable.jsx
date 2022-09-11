@@ -1,21 +1,24 @@
+import { useContext } from "react";
 import { createContext } from "react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import addAuthToken from "../../common/remote/addAuthHeader";
 import { tickITProClient } from "../../common/remote/tickitpro-client";
 import TicketPoolTableData from "./ticketPoolTableData";
+import { dashboardRenderContext } from "./userDashboard";
 
 export const ticketContext = createContext();
 
 export default function TicketPoolTable() {
     const id = useSelector((state) => state.loginSlice.id);
     const [tickets, setTickets] = useState();
+    const [creation] = useContext(dashboardRenderContext);
     const [showTable, setShowTable] = useState(true);
 
     useEffect(() => {
         console.log("table effect used");
         findAll();
-    }, [])
+    }, [creation,showTable]);
 
     async function findAll() {
         try{
@@ -37,7 +40,7 @@ export default function TicketPoolTable() {
     return (
         
         <>
-            <button>Show Ticket Table</button>
+            <button onClick={renderTable}>Show Ticket Table</button>
             {showTable === true ? (
                 <table sx={{ maxWidth: 1000 }} style={{ border: "black solid" }} align="center">
                     <thead>

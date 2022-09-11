@@ -17,7 +17,6 @@ export default function Settings() {
 
     async function changeUserInformation(r) {
         r.preventDefault();
-        setFormData({...formData, avatar: `https://avatars.dicebear.com/api/bottts/${formData.email}.svg`})
         try{
             console.log(formData);
             const response = await tickITProClient.put("/user", formData);
@@ -32,58 +31,76 @@ export default function Settings() {
     }
     return (
         <>  
+        
+        <div className="layout">
+     
     <form> 
-        <label>Email:</label>
+   <h3> Anything left blank will not be updated.</h3>
+   <div></div>
+   <table>
+
+   <tr> 
+        <td class="settingsLabel"><label>Email:</label></td>
         <input
-            // className="registration"
-            placeholder="example@mail.com"
+            className="registration"
+            placeholder="New Email ?"
             onChange = {(e) => {
                 setFormData({...formData, email: e.target.value});
             }}
         />
         <div></div>
-
-        <label>First Name:</label>
+        </tr>
+        <tr> 
+        <td class="settingsLabel">
+        <label>First Name:</label></td>
         <input
-            // className="registration"
-            placeholder="Jane"
+            className="registration"
+            placeholder="New First Name ?"
             onChange = {(e) => {
                 setFormData({...formData, firstName: e.target.value});
             }}
         />
         <div></div>
-
-        <label>Last Name:</label>
+        </tr>
+        <tr> 
+        <td class="settingsLabel">
+        <label>Last Name:</label></td>
         <input
-            // className="registration"
-            placeholder="Doe"
+            className="registration"
+            placeholder="New Last Name?"
             onChange = {(e) => {
                 setFormData({...formData, lastName: e.target.value});
             }}
         /> 
+        </tr>
     <div></div> 
-
-    <label>Password:</label>
+    <tr> 
+        <td class="settingsLabel">
+    <label>Password:</label></td>
     <input
-        // className="registration"
-        placeholder="Password"
+        className="registration"
+        placeholder="New Password?"
         onChange = {(e) => {
             setFormData({...formData, password: e.target.value});
         }}
     />
     <div></div>
-
-    <label>Department:</label>
+    </tr>
+    <tr> 
+        <td class="settingsLabel">
+    <label>Department:</label></td>
     <settingsContext.Provider>
         <departmentDropdownContext.Provider value={[formData,setFormData]}>
             <DepartmentDropDown />
         </departmentDropdownContext.Provider>
     </settingsContext.Provider>
     <div></div>
+    </tr>
+    </table>
     <button onClick={changeUserInformation}>Update</button>
 </form>
 <p>{message}</p>
-
+</div>
 </>
 
     );

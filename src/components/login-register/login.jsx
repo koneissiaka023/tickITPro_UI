@@ -39,7 +39,7 @@ export default function Login() {
     return (
         <>
             <label>Email:</label>
-            <input id="loginEmail" placeholder="user@mail.com" ref={emailInput} />
+            <input id="loginEmail" placeholder="user@mail.com" ref={emailInput} />  
             <label>Password:</label>
             <input id="loginPassword" type="password" placeholder="Password123!" ref={passwordInput} />
             <div></div>

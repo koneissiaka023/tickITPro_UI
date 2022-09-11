@@ -1,28 +1,32 @@
-import { stat } from "fs"
-import {createSlice} from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     ticketNumber: 0,
-    cards: []
-}
+    tickets: []
+};
 
-const cardPoolSlice = createSlice({
-    name: "user",
+const ticketPoolSlice = createSlice({
+    name: "ticket",
     initialState,
     reducers: {
-        addTicketStore(state, action) {
-            state.tickets = [...state.tickets, action.payload]
+        addTicketStore(state, action){
+            state.tickets = [...state.tickets, action.payload];
+            state.ticketNumber++;
         },
-        removeTicket(state, action){
+        removeTicket(state,action){
             const index = action.payload
-            for(let i = 0; i < state.tickets.length; i ++){
-                if (i === index) state.tickets.splice(i, 1) 
+            for(let i = 0; i < state.tickets.length; i++){
+                if (i === index) state.tickets.splice(i,1);
             }
-            state.ticket--;
+            state.ticketNumber--;
+        },
+        clearTickets(state){
+            state.tickets =[];
+            state.ticketNumber = 0;
         }
     }
-})
+});
 
-export default ticketPoolSlice.reducers
+export default ticketPoolSlice.reducer
 
-export const {addTicketStore, removeTicket, sendTicket} = cardPoolSlice.actions
+export const {addTicketStore, removeTicket, clearTickets} = ticketPoolSlice.actions

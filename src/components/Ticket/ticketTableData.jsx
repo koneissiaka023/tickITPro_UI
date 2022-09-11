@@ -1,24 +1,27 @@
-import { useContext } from "react"
-import DeleteTicket from "./deleteTicket"
-import { ticketContext } from "./ticketTable"
+import { useContext } from "react";
+import { useSelector } from "react-redux";
+import AddTicketToPool from "../dashboard/addTicketToPool";
+import { ticketContext } from "./ticketTable";
+import DeleteTicket from "./deleteTicket";
 
-export default function TicketTableData(){
-    const email = useSelector((state) => state.loginSlice.email)
-    const [cards] = useContext(ticketContext)
+export default function TicketTableData() {
+    const email = useSelector((state) => state.loginSlice.email);
+    const [tickets] = useContext(ticketContext);
     const ticketArray = tickets
-        .filter((t) => t.userEmail === email && t)
-        .map((t) => {
-            return(
-                <tr key = {t.ticketId}>
-                    <td>{t.description}</td>
-                    <td>{t.status}</td>
-                    <td>{t.priority}</td>
-                    <td>{t.itPro}</td>
-                    <AddTicketToPool ticket = {{description: t.description, status: t.status, priority: t.priority, itPro: t.itPro}}></AddTicketToPool>
-                    <DeleteTicket id ={t.ticketId}/>
+        .filter((c) => c.userEmail === email && c)
+        .map((o) => {
+            return (
+                <tr key={o.ticketId}>
+                    <td>{o.description}</td>
+                    <td>{o.priority}</td>
+                    <td>{o.subject}</td>
+                    <td>{o.status}</td>
+                    <td>{o.userEmail}</td>
+                    <AddTicketToPool ticket={{ description: o.description, priority: o.priority, subject: o.subject, status: o.status }} />
+                    <DeleteTicket id={o.ticketId} />
                 </tr>
-            )
-        })
-    return <tbody>{ticketArray}</tbody>
-    return <option value={departmentArray}>{departmentArray}</option>
-}   
+            );
+        });
+
+    return <tbody>{ticketArray}</tbody>;
+}

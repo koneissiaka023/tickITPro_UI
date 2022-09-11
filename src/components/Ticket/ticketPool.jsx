@@ -1,15 +1,15 @@
-import { useSelector } from "react-redux"
-import { TicketTableData } from "./ticketData";
+// import { useSelector } from "react-redux"
+// import { TicketTableData } from "./ticketTableData";
 
-export default function TicketPool() {
+// export default function TicketPool() {
  
-    const {tickets, ticketId} = useSelector((state) => state.ticketPoolSlice)
+//     const {tickets, ticketId} = useSelector((state) => state.ticketPoolSlice)
  
-    return (
-        <>
-            <h1>Ticket Pool: {ticketId}</h1>
+//     return (
+//         <>
+//             <h1>Ticket Pool: {ticketId}</h1>
         
-        <TicketTableData tickets={tickets}></TicketTableData>
-        </>
-    );
-}
+//         <TicketTableData tickets={tickets}></TicketTableData>
+//         </>
+//     );
+// }

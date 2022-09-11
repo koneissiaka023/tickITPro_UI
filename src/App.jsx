@@ -2,16 +2,15 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import LandingPage from "./components/LandingPage/landingpage";
-import Settings from "./components/Settings/settings";
-import UserDashboard from "./components/dashboard/ticketDashboard";
-import ITProDashboard from "./components/Ticket/tickITProEditor";
-import AdminUserEditor from "./components/User/userEditor";
-import AdminDepartmentEditor from "./components/Department/departmentEditor";
-import AdminSubjectEditor from "./components/Subject/subjectEditor";
+import Settings from "./components/User/settings";
+import UserDashboard from "./components/dashboard/userDashboard";
+import ITProDashboard from "./components/Ticket/itProDashboard";
+import AdminUserEditor from "./components/User/adminUserEditor";
+import AdminDepartmentEditor from "./components/Department/adminDepartmentEditor";
+import AdminSubjectEditor from "./components/Subject/adminSubjectEditor";
 import Navbar from "./components/LandingPage/navbar";
 import store from "./common/store/store";
 import './App.css';
-import TicketTable from "./components/Ticket/tickets";
 import AvailableTickets from "./components/Ticket/availableTickets";
 
 

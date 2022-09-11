@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import CreateTicketPool from "./createTicketPool";
+import CreateTicket from "./createTicket";
 import TicketPoolTable from "./ticketPoolTable";
 
 export default function UserDashboard() {
@@ -11,8 +11,8 @@ export default function UserDashboard() {
         <p>
             Tickets you create will be submitted under the account: {email}
         </p>
-        <CreateTicketPool />
-        {<TicketPoolTable />}
+        <CreateTicket />
+        <TicketPoolTable />
     </>
     );
 }

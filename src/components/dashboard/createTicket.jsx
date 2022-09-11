@@ -9,7 +9,7 @@ import { sendTicket } from "./ticketPoolSlice";
 
 export const ticketCreationContext = createContext();
 
-export default function CreateTicketPool() {
+export default function CreateTicket() {
     {/* AuthCheck(false); */}
     const email = useSelector((state) => state.loginSlice.email);
     const [message, setMessage] = useState();

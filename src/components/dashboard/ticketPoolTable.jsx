@@ -1,24 +1,28 @@
-import { findAllByAltText } from "@testing-library/react";
-import { setUseProxies } from "immer";
+import { createContext } from "react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { tickITProClient } from "../../common/remote/tickitpro-client";
 import TicketPoolTableData from "./ticketPoolTableData";
 
+export const ticketContext = createContext();
+
 export default function TicketPoolTable() {
-    const [ ticket, setTicket ] = useState()
-    const [showTable, setShowTable] = useState(true)
+    const id = useSelector((state) => state.loginSlice.id);
+    const [tickets, setTickets] = useState();
+    const [showTable, setShowTable] = useState(true);
 
     useEffect(() => {
-        console.log("table effect")
-        findAll()
+        console.log("table effect used");
+        findAll();
     }, [])
 
     async function findAll() {
         try{
-            const response = await tickITProClient.get("/ticket")
-            console.log(response.data)
-            setTicket(response.data)            
+            addAuthToken();
+            const response = await tickITProClient.get(`/ticket/requser/${id}`);
+            console.log(response.data);
+            setTickets(response.data);
+            console.log(tickets);
         } catch (error){
             console.error(error)
         }
@@ -35,41 +39,25 @@ export default function TicketPoolTable() {
             <button>Show Ticket Table</button>
             {showTable === true ? (
                 <table sx={{ maxWidth: 1000 }} style={{ border: "black solid" }} align="center">
-                <th>
-                    <tr style={{ backgroundColor: "black" }}>
-                        <td align="center"></td>
-                        <td align="center">Email</td>
-                        <td align="center">First Name</td>
-                        <td align="center">Last Name</td>
-                        <td align="center">IT Pro</td>
-                        <td align="center">Priority</td>
+                    <tr>
+                        <th>
+                            <td align="center"></td>
+                            <td align="center">Email</td>
+                            <td align="center">First Name</td>
+                            <td align="center">Last Name</td>
+                            <td align="center">IT Pro</td>
+                            <td align="center">Priority</td>
+                        </th>
                     </tr>
-                </th>
-                {/* useEffect is invoked AFTER this is rendered, causing the default to be undefined */}
-                {ticket === undefined || <TicketPoolTable ticket={ticket}></TicketPoolTable>}
-            </table>
-            ) :(
+                    {/* useEffect is invoked AFTER this is rendered, causing the default to be undefined */}
+                    <ticketContext.Provider value={[tickets,setTickets]}>
+                        {ticket === undefined || <TicketPoolTableData></TicketPoolTableData>}
+                    </ticketContext.Provider>
+                </table>
+            ) : (
 
                 <p>table hidden</p>
             )}
-            
-</>
-        // <div>
-        //     <h1>Number of available tickets: {ticketNumber}</h1>
-        //     <table>
-        //         <thead>
-        //             <tr>
-        //                 <th>Description</th>
-        //                 <th>Priority</th>
-        //                 <th>Subject</th>
-        //                 <th>Status</th>
-        //                 <th>Member Email</th>
-        //             </tr>
-        //         </thead>
-        //         {/* useEffect is invoked AFTER this is rendered, causing the default to be undefined */}
-
-        //         <TicketPoolTableData tickets={tickets}></TicketPoolTableData>
-        //     </table>
-        // </div>
+        </>
     )
 }

@@ -38,13 +38,14 @@ export default function Login() {
     // Return
     return (
         <>
-            <label>Email:</label>
-            <input id="loginEmail" placeholder="user@mail.com" ref={emailInput} />  
-            <label>Password:</label>
-            <input id="loginPassword" type="password" placeholder="Password123!" ref={passwordInput} />
+            <label for="loginEmail"><b>Email</b></label>
+            <input id="loginEmail" type="text" placeholder="user@mail.com" ref={emailInput} required/>
+            <label for="loginPassword"><b>Password</b></label>
+            <input id="loginPassword" type="password" placeholder="Password123!" ref={passwordInput} required/>
             <div></div>
-            <button onClick={login}>Login</button>
+            <button onClick={login} type="submit">Login</button>
             {loginStatus === undefined ? <p></p> : <p>{loginStatus}</p>}
+            
         </>
     );
 }

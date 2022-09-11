@@ -18,7 +18,7 @@ export default function Logout(){
         <div style={{float: "right"}}>
             <img className="profile" src={`https://avatars.dicebear.com/api/bottts/${email}.svg`}/>
             <span>Login as: {email} </span>
-            <Button onClick={logout}>Logout</Button>
+            <Button className = "navbarButtons" onClick={logout}>Logout</Button>
         </div>
            
     )

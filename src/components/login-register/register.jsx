@@ -29,6 +29,10 @@ export default function Register(){
             if(error.response.status === 400){
                 setMessage(`Could not register user: ${error.response.data}`);
             }
+
+            if(error.response.status === 500){
+                setMessage(`First name can not be empty\n Last name can not be empty\n Password must contain a minimum of eight characters, at least one letter, one number, and one special character(@$!%*#?&)`)
+            }
         }
     }
 

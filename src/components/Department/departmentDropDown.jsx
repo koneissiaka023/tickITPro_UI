@@ -1,13 +1,13 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { departmentDropdownContext } from "../../App";
 import { tickITProClient } from "../../common/remote/tickitpro-client";
 import DepartmentDropdownData from "./departmentDropdownData";
-import { registerContext } from "../login-register/register";
 
 export const departmentContext = createContext();
 
 export default function DepartmentDropDown() {
     const [departments, setDepartments] = useState();
-    const [formData, setFormData] = useContext(registerContext);
+    const [formData, setFormData] = useContext(departmentDropdownContext);
 
     useEffect(() => {
         console.log("effect invoked inside DepartmentDropDown");

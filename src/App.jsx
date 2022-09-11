@@ -15,6 +15,7 @@ import AvailableTickets from "./components/Ticket/availableTickets";
 import { createContext } from "react";
 
 export const subjectDropdownContext = createContext();
+export const departmentDropdownContext = createContext();
 
 
 function App() {

@@ -3,6 +3,7 @@ import { createContext, useState } from "react";
 import { useNavigate } from "react-router";
 import { tickITProClient } from "../../common/remote/tickitpro-client";
 import DepartmentDropDown from "../Department/departmentDropDown";
+import { departmentDropdownContext } from "../../App";
 
 export const registerContext = createContext();
 
@@ -82,8 +83,10 @@ return (
     <div></div>
 
     <label>Department:</label>
-    <registerContext.Provider value={[formData,setFormData]}>
-        <DepartmentDropDown />
+    <registerContext.Provider>
+        <departmentDropdownContext.Provider value={[formData,setFormData]}>
+            <DepartmentDropDown />
+        </departmentDropdownContext.Provider>
     </registerContext.Provider>
     <div></div>
     <button onClick={register}>Register</button>

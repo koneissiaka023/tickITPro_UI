@@ -11,7 +11,7 @@ export default function EditSubject() {
         <>
             <subjectEditorContext.Provider>
                 <subjectDropdownContext.Provider value={[formData,setFormData]}>
-                    <SubjectDropDown/>
+                    <SubjectDropDown />
                 </subjectDropdownContext.Provider>
             </subjectEditorContext.Provider>
         </>

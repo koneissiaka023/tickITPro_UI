@@ -16,6 +16,7 @@ import { createContext } from "react";
 
 export const subjectDropdownContext = createContext();
 export const departmentDropdownContext = createContext();
+export const ticketTableContext = createContext();
 
 
 function App() {

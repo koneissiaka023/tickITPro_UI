@@ -26,7 +26,7 @@ function App() {
             <Route exact path="" element={<LandingPage />} /> {/* LandingPage (Anonymous Users can register an account, existing users can login to their account) */}
             <Route path="settings" element={<Settings />} /> {/* Settings (All Users can view their Account details, update their account details, or delete their account) */}
             <Route path="user-dashboard" element={<UserDashboard />} /> {/* UserDashboard (All Users can view Tickets they've created, create a ticket, and edit their created tickets) */}
-            <Route path="itpro-dashboard" element={<ITProDashboard />} /> {/* ITProDashboard (ITPro can view tickets they've confirmed and edit their status, description, and subject ) */}
+            <Route path="itpro-dashboard" element={<ITProDashboard />} /> {/*ITProDashboard (ITPro can view tickets they've confirmed and edit their status, description, and subject ) */}
             <Route path="available-tickets" element={<AvailableTickets />} /> {/* AvailableTickets (ITPro confirms tickets in here which get added to their TicketPool) */}
             <Route path="admin-user-editor" element={<AdminUserEditor />} /> {/* AdminUserEditor (Admins can change User Role or Delete Users) */}
             <Route path="admin-department-editor" element={<AdminDepartmentEditor />} /> {/* AdminDepartmentEditor (Admins can create/update/delete Departments in the system) */}

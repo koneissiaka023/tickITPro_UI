@@ -1,14 +1,14 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { subjectDropdownContext } from "../../App";
 import addAuthToken from "../../common/remote/addAuthHeader";
 import { tickITProClient } from "../../common/remote/tickitpro-client";
-import { ticketCreationContext } from "../dashboard/createTicket";
 import SubjectDropDownData from "./subjectDropdownData";
 
 export const subjectContext = createContext();
 
 export default function SubjectDropDown() {
     const [subjects, setSubjects] = useState();
-    const [formData, setFormData] = useContext(ticketCreationContext);
+    const [formData, setFormData] = useContext(subjectDropdownContext);
 
     useEffect(() => {
         console.log("effect invoked inside SubjectDropDown");

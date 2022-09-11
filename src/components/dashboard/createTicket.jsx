@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import AuthCheck from "../../common/authCheck/authCheck";
 import addAuthToken from "../../common/remote/addAuthHeader";
 import { tickITProClient } from "../../common/remote/tickitpro-client";
+import { subjectDropdownContext } from "../../App";
 import SubjectDropDown from "../Subject/subjectDropdown";
 import AddTicketToPool from "./addTicketToPool";
 import { sendTicket } from "./ticketPoolSlice";
@@ -78,8 +79,8 @@ export default function CreateTicket() {
                 </div>
 
                 <label>Subject:</label>
-                <ticketCreationContext.Provider value={[formData,setFormData]}>
-                    <subjectDropdownContext.Provider>
+                <ticketCreationContext.Provider>
+                    <subjectDropdownContext.Provider value={[formData,setFormData]}>
                         <SubjectDropDown/>
                     </subjectDropdownContext.Provider>
                 </ticketCreationContext.Provider>

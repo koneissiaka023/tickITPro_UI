@@ -7,12 +7,12 @@ export const departmentContext = createContext();
 
 export default function DepartmentDropDown() {
     const [departments, setDepartments] = useState();
-    const [formData, setFormData] = useContext(departmentDropdownContext);
+    const [formData, setFormData, creation] = useContext(departmentDropdownContext);
 
     useEffect(() => {
         console.log("effect invoked inside DepartmentDropDown");
         findAll();
-    }, []);
+    }, [creation]);
 
     async function findAll() {
         try {

@@ -20,7 +20,7 @@ export default function DepartmentDropDown() {
             const response = await tickITProClient.get("/department");
             console.log(response.data);
             setDepartments(response.data);
-            setFormData({...formData, departmentId: response.data[0].departmentId});
+            setFormData({...formData, departmentId: ""});
         } catch (error) {
             console.error(error);
         }
@@ -33,6 +33,7 @@ export default function DepartmentDropDown() {
 
     return (
         <select onChange={updateDepartment} name="departmentDropdown" id="departmentDropdown">
+            <option key="" defaultValue="">Select an Option</option>
             <departmentContext.Provider value={[departments, setDepartments]}>
                 {departments === undefined || < DepartmentDropdownData/>}
             </departmentContext.Provider>

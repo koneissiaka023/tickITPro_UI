@@ -80,11 +80,12 @@ export default function CreateTicket() {
                     <input type="radio" id="techRadio3" name="priority" value="HIGH_PRIORITY" onChange={formFunctions.priority} />
                     <label>HIGH_PRIORITY</label>
                 </div>
-                <div>
-                <label><b>Subject </b></label>
-                </div>
-                <ticketCreationContext.Provider value={[formData,setFormData]}>
-                    <SubjectDropDown />
+
+                <label><b>Subject:</b></label>
+                <ticketCreationContext.Provider value={[]}>
+                    <subjectDropdownContext.Provider value={[formData,setFormData]}>
+                        <SubjectDropDown/>
+                    </subjectDropdownContext.Provider>
                 </ticketCreationContext.Provider>
                 <br />
 

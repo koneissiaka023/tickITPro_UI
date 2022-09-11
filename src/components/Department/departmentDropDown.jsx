@@ -2,6 +2,11 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { departmentDropdownContext } from "../../App";
 import { tickITProClient } from "../../common/remote/tickitpro-client";
 import DepartmentDropdownData from "./departmentDropdownData";
+<<<<<<< HEAD
+=======
+import { registerContext } from "../login-register/register";
+import addAuthToken from "../../common/remote/addAuthHeader";
+>>>>>>> 32474ef287b0fe209fe07094d0aeb609c02317f6
 
 export const departmentContext = createContext();
 
@@ -16,6 +21,7 @@ export default function DepartmentDropDown() {
 
     async function findAll() {
         try {
+            addAuthToken()
             const response = await tickITProClient.get("/department");
             console.log(response.data);
             setDepartments(response.data);

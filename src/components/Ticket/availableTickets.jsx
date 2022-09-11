@@ -1,7 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 import addAuthToken from "../../common/remote/addAuthHeader";
 import { tickITProClient } from "../../common/remote/tickitpro-client";
-import ITProDashboard from "./itProDashboard";
+import TicketTable from "./ticketTable";
+import { ticketTableContext } from "../../App";
+
 
 
 export const ticketContext = createContext();
@@ -41,8 +43,10 @@ export default function AvailableTickets(props) {
                             {/* <th align="center">ITPro ID</th> */}
                         </tr>
                     </thead>
-                    <ticketContext.Provider value={[tickets,setTickets]}>
-                        {tickets === undefined || <ITProDashboard/> }
+                    <ticketContext.Provider>
+                        <ticketTableContext.Provider value={[tickets,setTickets]}>
+                        {tickets === undefined || <TicketTable/> }
+                        </ticketTableContext.Provider>
                     </ticketContext.Provider>
                 </table>
             ) : (

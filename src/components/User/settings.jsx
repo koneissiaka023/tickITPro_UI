@@ -1,8 +1,9 @@
 import { createContext, useState } from "react";
 import { tickITProClient } from "../../common/remote/tickitpro-client";
+import { departmentDropdownContext } from "../../App";
 import DepartmentDropDown from "../Department/departmentDropDown";
 
-export const registerContext = createContext();
+export const settingsContext = createContext();
 
 export default function Settings() {
     const [message, setMessage] = useState();
@@ -73,9 +74,11 @@ export default function Settings() {
     <div></div>
 
     <label>Department:</label>
-    <registerContext.Provider value={[formData,setFormData]}>
-        <DepartmentDropDown />
-    </registerContext.Provider>
+    <settingsContext.Provider>
+        <departmentDropdownContext.Provider value={[formData,setFormData]}>
+            <DepartmentDropDown />
+        </departmentDropdownContext.Provider>
+    </settingsContext.Provider>
     <div></div>
     <button onClick={changeUserInformation}>Update</button>
 </form>

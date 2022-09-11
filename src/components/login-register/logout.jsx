@@ -19,11 +19,6 @@ export default function Logout(){
             <span>Login as: {email} </span>
             <Button onClick={logout}>Logout</Button>
         </div>
-
-        
            
-      
     )
-
-
 }

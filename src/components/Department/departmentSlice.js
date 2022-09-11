@@ -13,6 +13,9 @@ const departmentSlice = createSlice({
             state.departments = [...state.departments, action.payload];
             state.departmentNumber++;
         },
+        updateDepartmentStore(state, action) {
+            state.departments = [state, action.payload];
+        },
         removeDepartment(state, action) {
             const index = action.payload;
             for (let i = 0; i < state.departments.length; i++) {

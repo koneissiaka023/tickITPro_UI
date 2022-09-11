@@ -29,7 +29,7 @@ export default function CreateTicketPool() {
     async function submitTicket(e) {
         e.preventDefault();
         try {
-            addAuthToken();
+            addAuthToken()
             console.log(formData);
             const response = await tickITProClient.post("/ticket", formData);
             console.log(response.data);

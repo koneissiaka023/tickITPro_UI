@@ -14,8 +14,7 @@ export default function DepartmentDropdownData(props) {
         )
     }
 
-    let departmentArray;
-    departmentArray = departments.map((o) => {
+    let departmentArray = departments.map((o) => {
         return renderDepartmentOption(o);
     })
 

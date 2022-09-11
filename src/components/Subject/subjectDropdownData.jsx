@@ -12,10 +12,9 @@ export default function SubjectDropDownData() {
         )
     }
 
-    let subjectArray;
-    subjectArray = subjects.map((o) => {
+    let subjectArray = subjects.map((o) => {
         return renderSubjectOption(o);
-    })
+    });
 
     return subjectArray;
 }

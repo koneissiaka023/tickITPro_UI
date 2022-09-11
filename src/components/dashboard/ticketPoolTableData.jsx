@@ -1,17 +1,20 @@
+import { useContext } from "react";
 import { useSelector } from "react-redux";
 import DeleteTicketFromPool from "./deleteTicketFromPool";
+import { ticketContext } from "./ticketPoolTable";
 
 export default function TicketPoolTableData(props) {
-    const email = useSelector((state) => state.loginSlice.email);
-    const ticketArray = props.tickets.map((o, i) => {
+    const [tickets] = useContext(ticketContext);
+    
+    let ticketArray = tickets.map((o) => {
         return (
-            <tr key={i}>
+            <tr key={o.ticketId}>
+                <td>{o.submissionDate}</td>
+                <td>{o.subjectId}</td>
                 <td>{o.description}</td>
                 <td>{o.priority}</td>
-                <td>{o.subject}</td>
                 <td>{o.status}</td>
-                <td>{email}</td>
-                <DeleteTicketFromPool id={i} />
+                <td>{o.proId}</td>
             </tr>
         );
     });

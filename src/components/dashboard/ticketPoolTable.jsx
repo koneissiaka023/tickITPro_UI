@@ -1,6 +1,7 @@
 import { createContext } from "react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import addAuthToken from "../../common/remote/addAuthHeader";
 import { tickITProClient } from "../../common/remote/tickitpro-client";
 import TicketPoolTableData from "./ticketPoolTableData";
 
@@ -24,7 +25,7 @@ export default function TicketPoolTable() {
             setTickets(response.data);
             console.log(tickets);
         } catch (error){
-            console.error(error)
+            console.error(error);
         }
     }
 
@@ -39,23 +40,22 @@ export default function TicketPoolTable() {
             <button>Show Ticket Table</button>
             {showTable === true ? (
                 <table sx={{ maxWidth: 1000 }} style={{ border: "black solid" }} align="center">
-                    <tr>
-                        <th>
-                            <td align="center"></td>
-                            <td align="center">Email</td>
-                            <td align="center">First Name</td>
-                            <td align="center">Last Name</td>
-                            <td align="center">IT Pro</td>
-                            <td align="center">Priority</td>
-                        </th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th align="center">Submission Date</th>
+                            <th align="center">Subject ID</th>
+                            <th align="center">Description</th>
+                            <th align="center">Priority</th>
+                            <th align="center">Status</th>
+                            <th align="center">ITPro ID</th>
+                        </tr>
+                    </thead>
                     {/* useEffect is invoked AFTER this is rendered, causing the default to be undefined */}
                     <ticketContext.Provider value={[tickets,setTickets]}>
-                        {ticket === undefined || <TicketPoolTableData></TicketPoolTableData>}
+                        {tickets === undefined || <TicketPoolTableData />}
                     </ticketContext.Provider>
                 </table>
             ) : (
-
                 <p>table hidden</p>
             )}
         </>

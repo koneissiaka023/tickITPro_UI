@@ -21,7 +21,7 @@ export default function SubjectDropDown() {
             const response = await tickITProClient.get("/subject");
             console.log(response.data);
             setSubjects(response.data);
-            setFormData({...formData, subjectId: response.data[0].subjectId});
+            setFormData({...formData, subjectId: response.data[0].id});
         } catch (error) {
             console.error(error);
         }

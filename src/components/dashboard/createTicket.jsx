@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AuthCheck from "../../common/authCheck/authCheck";
 import addAuthToken from "../../common/remote/addAuthHeader";
@@ -6,12 +6,14 @@ import { tickITProClient } from "../../common/remote/tickitpro-client";
 import SubjectDropDown from "../Subject/subjectDropdown";
 import AddTicketToPool from "./addTicketToPool";
 import { sendTicket } from "./ticketPoolSlice";
+import { dashboardRenderContext } from "./userDashboard";
 
 export const ticketCreationContext = createContext();
 
 export default function CreateTicket() {
     {/* AuthCheck(false); */}
     const email = useSelector((state) => state.loginSlice.email);
+    const [creation, setCreation] = useContext(dashboardRenderContext);
     const [message, setMessage] = useState();
 
     {/* const tickets = useSelector((state) => state.AddTicketToPool); */}
@@ -34,6 +36,7 @@ export default function CreateTicket() {
             console.log(formData);
             const response = await tickITProClient.post("/ticket", formData);
             console.log(response.data);
+            setCreation(`Ticket has been successfully submitted! ${response.data.ticketId}`);
             setMessage(`Ticket has been successfully submitted! ${response.data.ticketId}`);
         } catch (error) {
             console.log(error.response.data);

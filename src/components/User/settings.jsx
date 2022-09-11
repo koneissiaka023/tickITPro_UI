@@ -32,10 +32,9 @@ export default function Settings() {
     return (
         <>  
     <form> 
-        {/* <img ></img> */}
         <label>Email:</label>
         <input
-            className="registration"
+            // className="registration"
             placeholder="example@mail.com"
             onChange = {(e) => {
                 setFormData({...formData, email: e.target.value});
@@ -45,7 +44,7 @@ export default function Settings() {
 
         <label>First Name:</label>
         <input
-            className="registration"
+            // className="registration"
             placeholder="Jane"
             onChange = {(e) => {
                 setFormData({...formData, firstName: e.target.value});
@@ -55,7 +54,7 @@ export default function Settings() {
 
         <label>Last Name:</label>
         <input
-            className="registration"
+            // className="registration"
             placeholder="Doe"
             onChange = {(e) => {
                 setFormData({...formData, lastName: e.target.value});
@@ -65,7 +64,7 @@ export default function Settings() {
 
     <label>Password:</label>
     <input
-        className="registration"
+        // className="registration"
         placeholder="Password"
         onChange = {(e) => {
             setFormData({...formData, password: e.target.value});
@@ -78,7 +77,7 @@ export default function Settings() {
         <DepartmentDropDown />
     </registerContext.Provider>
     <div></div>
-    <button onClick={changeUserInformation}>Register</button>
+    <button onClick={changeUserInformation}>Update</button>
 </form>
 <p>{message}</p>
 

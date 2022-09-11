@@ -20,7 +20,7 @@ export default function CreateTicket() {
 
     const [formData, setFormData] = useState({
         description: "",
-        priority: "DEFAULT",
+        priority: "",
         subjectId: ""
     });
     const [submit, setSubmit] = useState(true);
@@ -63,12 +63,15 @@ export default function CreateTicket() {
         <>
 
             <form onSubmit={defaultSub}>
-                <label>Description:</label>
+                <div>
+                    <label><b>Description </b></label>
+                </div>
                 <textarea className="ticket" placeholder="i.e describe your issue" onChange={formFunctions.description} />
                 <br />
-
                 <div>
-                    <label>Priority:</label>
+                    <div>
+                    <label><b>Priority </b></label>
+                    </div>
                     <input type="radio" id="techRadio1" name="priority" value="DEFAULT" onChange={formFunctions.priority} />
                     <label>DEFAULT</label>
                     <input type="radio" id="techRadio2" name="priority" value="LOW_PRIORITY" onChange={formFunctions.priority} />
@@ -76,8 +79,9 @@ export default function CreateTicket() {
                     <input type="radio" id="techRadio3" name="priority" value="HIGH_PRIORITY" onChange={formFunctions.priority} />
                     <label>HIGH_PRIORITY</label>
                 </div>
-
-                <label>Subject:</label>
+                <div>
+                <label><b>Subject </b></label>
+                </div>
                 <ticketCreationContext.Provider value={[formData,setFormData]}>
                     <SubjectDropDown />
                 </ticketCreationContext.Provider>
@@ -86,7 +90,7 @@ export default function CreateTicket() {
                 <input type="hidden" id="prioritySelect" className="ticket" value=""></input>
 
                 {/*<AddTicketToPool ticket={formData} /> */}
-                <button onClick={submitTicket}>Submit Ticket</button>
+                <button onClick={submitTicket} className = "navbarButtons">Submit Ticket</button>
             </form>
             <p>{message}</p>
             

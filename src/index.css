@@ -1,50 +1,161 @@
+/* Setting up some root colors */
+:root {
+	--c-gray-900: #221f1f;
+	--c-gray-800: #1f1f1f;
+	--c-gray-700: #2e2e2e;
+	--c-gray-600: #313131;
+	--c-gray-500: #969593;
+	--c-gray-400: #a6a6a6;
+	--c-gray-300: #bdbbb7;
+	--c-gray-200: #f1f1f1;
+	--c-gray-100: #ffffff;
+
+	--c-green-500: #45ffbc;
+	--c-olive-500: #e3ffa8;
+
+	--c-white: var(--c-gray-100);
+
+	--c-text-primary: var(--c-gray-100);
+	--c-text-secondary: var(--c-gray-200);
+	--c-text-tertiary: var(--c-gray-500);
+}
 
 .layout {
-  width: 1363px;
-  height: 510px;
+  width: 1500px;
+  height: 250px;
 
   display: grid;
   grid:
-    "Login" 120px
-    "Register" 120px
-    / px;
-  gap: 50px 8px;
-  grid-auto-flow: row dense;
+    "Login Register" 0px
+    / 0.2fr 320px;
+  gap: 1px 10px;
 
   justify-content: center;
   align-content: space-around;
 }
 
-.tickitproName{
-  background-color: #f1f1f1;
-  text-align: center;
-  color: rgb(9, 99, 158);
-  font-size:xx-large;
-  font-weight: 900;
-}
-
-/* .tickitproName img {
-  display: inline;
-  float:left;
-  width: 60px;
-  height: 60px;
-  background: #555;
-  object-fit: cover;
-  border-radius: 30px;
-  margin: 10px
-} */
-
-
-.technicalSupport{
-  margin:0;
-  height: 500px;
+.background_image {
+  background-image: url("/public/tickitPro_logo.png");
+  height: 900px;
   background-position: center;
-  background-repeat: no-repeat; 
-  background-size: cover; 
-  opacity: 0.06;
-  position:fixed
+  background-repeat: no-repeat;
+  background-size: cover;
+  position:relative;
 }
 
+table{
+  border-collapse: collapse;
+  width:fit-content;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.tableButton{
+  background-color: rgb(8, 49, 77);
+  color: white;
+  padding: 14px 15px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width:fit-content;
+  justify-content: center;
+  align-content: space-around;
+  overflow: auto;
+  border-radius: 12px
+}
+
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(236, 232, 232);
+  box-sizing: border-box;
+  justify-content: center;
+  align-content: space-around;
+  overflow: auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+textarea{
+  width: 25%;
+  height: 50%;
+  margin: 8px 20px;
+  border:black;
+  box-sizing: border-box;
+  overflow:scroll;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 2px solid rgb(22, 21, 21);
+  border-radius: 4px;
+  padding: auto;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  justify-content: center;
+  align-content: space-around;
+  overflow: auto;
+}
+
+.navbarButtons{
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 15px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width:fit-content;
+  justify-content: center;
+  align-content: space-around;
+  overflow: auto;
+}
+
+nav #navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  border-right: solid;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+label{
+  color: var(--c-text-tertiary);
+}
 
 ul {
   list-style-type: none;
@@ -53,11 +164,12 @@ ul {
   width: 200px;
   background-color: #f1f1f1;
   border: 1px solid #555;
+  border-radius: 25px;
 }
 
 li a {
   display: block;
-  color: #000;
+  color: rgb(179, 173, 173);
   padding: 8px 16px;
   text-decoration: none;
 }
@@ -72,7 +184,7 @@ li:last-child {
 }
 
 li a.active {
-  background-color: #195883;
+  background-color: rgb(8, 49, 77);
   color: white;
 }
 
@@ -85,9 +197,28 @@ li a:hover:not(.active) {
 body {
   margin: 0;
   background-color: #474646;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+	min-height: 100vh;
+	font-family: "Be Vietnam Pro", sans-serif;
+	background-color: var(--c-gray-900);
+	color: var(--c-text-primary);
+	justify-content: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+p {
+  color: var(--c-text-tertiary);
+  font-size: 0.875rem;
 }
+
+h1 {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.375;
+  margin-left: 0.5rem;
+  color: #f1f1f1;
+  margin: 12px;
+  padding: 12px;
+  background-color: rgb(8, 49, 77);
+}
+

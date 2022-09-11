@@ -12,10 +12,10 @@ export default function Navbar() {
                     
                     <Logout></Logout>
                     <Link to="/settings">
-                        <button>Settings</button>
+                        <button className = "navbarButtons">Settings</button>
                     </Link>
                     <Link to="/user-dashboard">
-                        <button>User Dashboard</button>
+                        <button className = "navbarButtons">User Dashboard</button>
                     </Link>
                 </>
             )}
@@ -23,10 +23,10 @@ export default function Navbar() {
             {itpro && (
                 <>
                     <Link to="/itpro-dashboard">
-                        <button>ITPro Dashboard</button>
+                        <button className = "navbarButtons">ITPro Dashboard</button>
                     </Link>
                     <Link to="/available-tickets">
-                        <button>Available Tickets</button>
+                        <button className = "navbarButtons">Available Tickets</button>
                     </Link>
                 </>
             )}
@@ -34,16 +34,16 @@ export default function Navbar() {
             {admin && (
                 <>
                     <Link to="/admin-user-editor">
-                        <button>Admin User Editor</button>
+                        <button className = "navbarButtons">Admin User Editor</button>
                     </Link>
                     <Link to="/admin-department-editor">
-                        <button>Admin Department Editor</button>
+                        <button className = "navbarButtons">Admin Department Editor</button>
                     </Link>
                     <Link to="/admin-subject-editor">
-                        <button>Admin Subject Editor</button>
+                        <button className = "navbarButtons">Admin Subject Editor</button>
                     </Link>
                     <Link to="/tickets">
-                        <button>tickets</button>
+                        <button className = "navbarButtons">tickets</button>
                     </Link>
                 </>
             )}

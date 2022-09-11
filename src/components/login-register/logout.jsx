@@ -17,7 +17,7 @@ export default function Logout(){
     return (
         <div style={{float: "right"}}>
             <span>Login as: {email} </span>
-            <Button onClick={logout}>Logout</Button>
+            <Button className = "navbarButtons" onClick={logout}>Logout</Button>
         </div>
 
         

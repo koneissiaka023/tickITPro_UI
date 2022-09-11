@@ -39,7 +39,7 @@ async function confirmTicket(t){
                     <td>{o.priority}</td>
                     <td>{o.status}</td>
                     <td>{o.proId}</td>
-                    <button onClick={() => confirmTicket(o.ticketId)}>Select Ticket</button>
+                    <button onClick={() => confirmTicket(o.ticketId)}>Confirm</button>
                 </tr>
               
             );

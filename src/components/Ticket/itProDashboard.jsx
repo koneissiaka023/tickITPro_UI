@@ -13,7 +13,7 @@ export default function ITProDashboard() {
    const [showTable, setShowTable] = useState(true);
 
    useEffect(() => {
-
+        findAll();
    }, [])
 
    async function findAll(){
@@ -28,7 +28,7 @@ export default function ITProDashboard() {
 
    return(
     <>
-    <button>Show Tickets</button>
+    {/* <button>Show Tickets</button> */}
     {showTable === true ? (
         <table sx={{maxWidth: 1000}} style={{border: "black solid"}} align="center">
             <thead>

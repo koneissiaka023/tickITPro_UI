@@ -12,8 +12,9 @@ import Navbar from "./components/LandingPage/navbar";
 import store from "./common/store/store";
 import './App.css';
 import AvailableTickets from "./components/Ticket/availableTickets";
+import { createContext } from "react";
 
-
+export const subjectDropdownContext = createContext();
 
 
 function App() {

@@ -6,11 +6,10 @@ export default function Navbar() {
     const {email, admin, itpro} = useSelector((state) => state.loginSlice);
 
     return (
+        <>
         <nav>
             {email === "anon" || (
                 <>
-                    
-                    <Logout></Logout>
                     <Link to="/settings">
                         <button>Settings</button>
                     </Link>
@@ -48,5 +47,9 @@ export default function Navbar() {
                 </>
             )}
         </nav>
+        {email === "anon" || (
+            <Logout></Logout>
+        )}
+    </>
     );
 }

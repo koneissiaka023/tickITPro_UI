@@ -46,7 +46,7 @@ export default function TicketPoolTable() {
                     <thead>
                         <tr>
                             <th align="center">Submission Date</th>
-                            <th align="center">Subject ID</th>
+                            <th align="center">Subject</th>
                             <th align="center">Description</th>
                             <th align="center">Priority</th>
                             <th align="center">Status</th>

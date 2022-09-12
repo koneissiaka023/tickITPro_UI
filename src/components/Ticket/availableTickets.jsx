@@ -16,7 +16,7 @@ export default function AvailableTickets(props) {
     useEffect(() => {
         findAll();
         
-    }, [])
+    }, [showTable,tickets])
 
     async function findAll(){
         try{
@@ -28,9 +28,13 @@ export default function AvailableTickets(props) {
         }
     }
 
+    function renderTable(){
+        showTable ? setShowTable(false) : setShowTable(true)
+    }
+
     return (
         <>
-            {/* <button>Show Tickets</button> */}
+            {/* <button onClick={renderTable}>Show Tickets</button> */}
             {showTable === true ? (
                 <table sx={{maxWidth: 1000}} style={{border: "black solid"}} align="center">
                     <thead>

@@ -72,9 +72,9 @@ export default function EditSubject() {
                     onChange = {(e) => {
                         setFormData({...formData, name: e.target.value});
                     }} />
-                <button onClick={updateSubject}>Update Subject</button>
-                <button onClick={createSubject}>Create Subject</button>
-                <button onClick={deleteSubject}>Delete Subject</button>
+                <button className="navbarButtons" onClick={updateSubject}>Update Subject</button>
+                <button className="navbarButtons" onClick={createSubject}>Create Subject</button>
+                <button className="navbarButtons" onClick={deleteSubject}>Delete Subject</button>
             </form>
             <p>{creation}</p>
         </>

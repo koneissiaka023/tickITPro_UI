@@ -7,7 +7,7 @@ export default function AdminSubjectEditor() {
     const [creation,setCreation] = useState();
 
     useEffect(() => {
-        console.log("effect invoked inside of createContext");
+        console.log("effect invoked inside of AdminSubjectEditor");
     }, [creation]);
 
     return (

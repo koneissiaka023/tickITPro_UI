@@ -23,7 +23,7 @@ export default function Register(){
         try{
             console.log(formData);
             const response = await tickITProClient.post("/user", formData);
-            setMessage(`User was successfully created! ${response.data.userId}`);
+            setMessage(`User was successfully created! You can now Login`);
         } catch (error){
             console.log(error);
 

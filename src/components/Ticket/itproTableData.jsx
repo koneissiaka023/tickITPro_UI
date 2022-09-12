@@ -30,7 +30,7 @@ export default function ItProTableData(){
      <>
      {/* <button>Show Tickets</button> */}
      {showTable === true ? (
-         <table sx={{maxWidth: 1000}} style={{border: "black solid"}} align="center">
+         <table align="center">
              <thead>
                  <tr>
                          <th align="center">Submission Date</th>

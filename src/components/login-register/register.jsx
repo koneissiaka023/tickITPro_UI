@@ -42,7 +42,7 @@ return (
 <>  
     <form> 
         {/* <img ></img> */}
-        <label for="email"><b>Email</b></label>
+        <label htmlFor="email"><b>Email</b></label>
         <input
             className="registration"
             placeholder="example@mail.com"
@@ -52,7 +52,7 @@ return (
             type="text"
         />
         <div></div>
-        <label for="firstName"><b>First Name</b></label>
+        <label htmlFor="firstName"><b>First Name</b></label>
         <input
             className="registration"
             placeholder="Jane"
@@ -63,7 +63,7 @@ return (
         />
         <div></div>
 
-        <label for="lastName"><b>Last Name</b></label>
+        <label htmlFor="lastName"><b>Last Name</b></label>
         <input
             className="registration"
             placeholder="Doe"
@@ -74,7 +74,7 @@ return (
         /> 
     <div></div> 
 
-    <label for="paswd"><b>Password</b></label>
+    <label htmlFor="paswd"><b>Password</b></label>
     <input
         className="registration"
         placeholder="Password"

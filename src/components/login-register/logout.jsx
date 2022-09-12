@@ -15,11 +15,10 @@ export default function Logout(){
         navigate("/");
     }
     return (
-        <div style={{float: "right"}}>
+        <div>
             <img className="profile" src={`https://avatars.dicebear.com/api/bottts/${email}.svg`}/>
             <span>Login as: {email} </span>
             <Button className = "navbarButtons" onClick={logout}>Logout</Button>
         </div>
-           
     )
 }

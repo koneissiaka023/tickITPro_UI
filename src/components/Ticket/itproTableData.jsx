@@ -14,7 +14,7 @@ export default function ItProTableData(){
  
     useEffect(() => {
          findAll();
-    }, [])
+    }, [showTable, tickets])
  
     async function findAll(){
          try{

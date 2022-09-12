@@ -4,6 +4,7 @@ import addAuthToken from "../../common/remote/addAuthHeader";
 import { tickITProClient } from "../../common/remote/tickitpro-client";
 import TicketTable from "./ticketTable";
 import { ticketTableContext } from "../../App";
+import ItProTable from "./itProTable";
 
 export const ticketContext = createContext();
 
@@ -13,7 +14,7 @@ export default function ITProDashboard() {
    const [showTable, setShowTable] = useState(true);
 
    useEffect(() => {
-
+        findAll();
    }, [])
 
    async function findAll(){
@@ -28,7 +29,7 @@ export default function ITProDashboard() {
 
    return(
     <>
-    <button>Show Tickets</button>
+    {/* <button>Show Tickets</button> */}
     {showTable === true ? (
         <table sx={{maxWidth: 1000}} style={{border: "black solid"}} align="center">
             <thead>
@@ -43,7 +44,7 @@ export default function ITProDashboard() {
             </thead>
             <ticketContext.Provider>
                 <ticketTableContext.Provider value={[tickets, setTickets]}>
-                    {tickets === undefined || <TicketTable/>}
+                    {tickets === undefined || <ItProTable/>}
                 </ticketTableContext.Provider>
             </ticketContext.Provider>
         </table>

@@ -2,11 +2,15 @@ import { createContext, useState } from "react";
 import { tickITProClient } from "../../common/remote/tickitpro-client";
 import { departmentDropdownContext } from "../../App";
 import DepartmentDropDown from "../Department/departmentDropDown";
+import { useDispatch, useSelector } from "react-redux";
+import { loginStore } from "../login-register/loginSlice";
 
 export const settingsContext = createContext();
 
 export default function Settings() {
+    const userState = useSelector((state) => state.loginSlice);
     const [message, setMessage] = useState();
+    const dispatch = useDispatch();
     const [formData, setFormData] = useState({
         email: "",
         firstName: "",
@@ -19,7 +23,10 @@ export default function Settings() {
         r.preventDefault();
         try{
             console.log(formData);
+            console.log(userState);
             const response = await tickITProClient.put("/user", formData);
+            console.log(response.data);
+            dispatch(loginStore(userState));
             setMessage(`User was successfully updated! ${response.data.userId}`);
         } catch (error){
             console.log(error);
@@ -31,77 +38,53 @@ export default function Settings() {
     }
     return (
         <>  
-        
-        <div className="layout">
-     
-    <form> 
-   <h3> Anything left blank will not be updated.</h3>
-   <div></div>
-   <table>
-
-   <tr> 
-        <td class="settingsLabel"><label>Email:</label></td>
-        <input
-            className="registration"
-            placeholder="New Email ?"
-            onChange = {(e) => {
-                setFormData({...formData, email: e.target.value});
-            }}
-        />
-        <div></div>
-        </tr>
-        <tr> 
-        <td class="settingsLabel">
-        <label>First Name:</label></td>
-        <input
-            className="registration"
-            placeholder="New First Name ?"
-            onChange = {(e) => {
-                setFormData({...formData, firstName: e.target.value});
-            }}
-        />
-        <div></div>
-        </tr>
-        <tr> 
-        <td class="settingsLabel">
-        <label>Last Name:</label></td>
-        <input
-            className="registration"
-            placeholder="New Last Name?"
-            onChange = {(e) => {
-                setFormData({...formData, lastName: e.target.value});
-            }}
-        /> 
-        </tr>
-    <div></div> 
-    <tr> 
-        <td class="settingsLabel">
-    <label>Password:</label></td>
-    <input
-        className="registration"
-        placeholder="New Password?"
-        onChange = {(e) => {
-            setFormData({...formData, password: e.target.value});
-        }}
-    />
-    <div></div>
-    </tr>
-    <tr> 
-        <td class="settingsLabel">
-    <label>Department:</label></td>
-    <settingsContext.Provider>
-        <departmentDropdownContext.Provider value={[formData,setFormData]}>
-            <DepartmentDropDown />
-        </departmentDropdownContext.Provider>
-    </settingsContext.Provider>
-    <div></div>
-    </tr>
-    </table>
-    <button onClick={changeUserInformation}>Update</button>
-</form>
-<p>{message}</p>
-</div>
-</>
-
+            <div className="layout">
+                <h3> Anything left blank will not be updated.</h3>
+                <ul className="login_button">
+                <form>
+                    <label>Email:</label>
+                    <input
+                    className="registration"
+                    placeholder="New Email ?"
+                    onChange = {(e) => {
+                        setFormData({...formData, email: e.target.value});
+                    }} />
+                    <div></div>
+                    <label>First Name:</label>
+                    <input
+                    className="registration"
+                    placeholder="New First Name ?"
+                    onChange = {(e) => {
+                        setFormData({...formData, firstName: e.target.value});
+                    }} />
+                    <div></div>
+                    <label>Last Name:</label>
+                    <input
+                    className="registration"
+                    placeholder="New Last Name?"
+                    onChange = {(e) => {
+                        setFormData({...formData, lastName: e.target.value});
+                    }} />
+                    <div></div>
+                    <label>Password:</label>
+                    <input
+                    className="registration"
+                    placeholder="New Password?"
+                    onChange = {(e) => {
+                        setFormData({...formData, password: e.target.value});
+                    }}/>
+                    <div></div>
+                    <label>Department:</label>
+                    <settingsContext.Provider value={[]}>
+                        <departmentDropdownContext.Provider value={[formData,setFormData]}>
+                            <DepartmentDropDown />
+                        </departmentDropdownContext.Provider>
+                    </settingsContext.Provider>
+                    <button onClick={changeUserInformation}>Update</button>
+                </form>
+                <p>{message}</p>
+                </ul>
+            </div>
+        </>
     );
 }

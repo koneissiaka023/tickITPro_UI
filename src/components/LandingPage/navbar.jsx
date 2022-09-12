@@ -41,9 +41,6 @@ export default function Navbar() {
                     <Link to="/admin-subject-editor">
                         <button className = "navbarButtons">Admin Subject Editor</button>
                     </Link>
-                    <Link to="/tickets">
-                        <button className = "navbarButtons">tickets</button>
-                    </Link>
                 </>
             )}
         </nav>

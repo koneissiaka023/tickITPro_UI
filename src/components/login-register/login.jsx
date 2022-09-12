@@ -38,9 +38,9 @@ export default function Login() {
     // Return
     return (
         <>
-            <label for="loginEmail"><b>Email</b></label>
+            <label htmlFor="loginEmail"><b>Email</b></label>
             <input id="loginEmail" type="text" placeholder="user@mail.com" ref={emailInput} required/>
-            <label for="loginPassword"><b>Password</b></label>
+            <label htmlFor="loginPassword"><b>Password</b></label>
             <input id="loginPassword" type="password" placeholder="Password123!" ref={passwordInput} required/>
             <div></div>
             <button onClick={login} type="submit">Login</button>

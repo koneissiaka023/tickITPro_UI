@@ -7,6 +7,7 @@ import { ticketContext } from "./ticketPoolTable";
 export default function TicketPoolTableData(props) {
     const [tickets] = useContext(ticketContext);
     
+    
     let ticketArray = tickets.map((o) => {
         return (
             <tr key={o.ticketId}>

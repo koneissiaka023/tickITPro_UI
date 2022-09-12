@@ -20,6 +20,5 @@ export default function Logout(){
             <span>Login as: {email} </span>
             <Button className = "navbarButtons" onClick={logout}>Logout</Button>
         </div>
-           
     )
 }

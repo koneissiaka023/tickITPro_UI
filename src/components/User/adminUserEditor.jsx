@@ -12,7 +12,7 @@ export default function AdminUserEditor() {
 
     return (
         <>
-            <h1>Admin User Editor</h
+            <h1>Admin User Editor</h1>
             <p>
                 Update User roles next to their profile
             </p>

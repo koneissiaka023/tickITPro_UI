@@ -15,7 +15,7 @@ export default function ITProDashboard() {
 
    useEffect(() => {
         findAll();
-   }, [])
+   }, [tickets])
 
    async function findAll(){
         try{

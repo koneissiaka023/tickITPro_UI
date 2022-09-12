@@ -1,11 +1,16 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import EditDepartment from "./editDepartment";
+
 
 export const departmentEditorRenderContext = createContext()
 
 export default function AdminDepartmentEditor() {
 
     const [creation, setCreation] = useState()
+
+    useEffect(() => {
+        console.log("effect invoked inside of createContext");
+    }, [creation]);
 
     return (
         <>
@@ -15,7 +20,7 @@ export default function AdminDepartmentEditor() {
             </p>
 
             <departmentEditorRenderContext.Provider value = {{creation,setCreation}}>
-                {/*<EditDepartment></EditDepartment>*/}
+                <EditDepartment></EditDepartment>
             </departmentEditorRenderContext.Provider>
         </>
     );

@@ -85,7 +85,7 @@ return (
     />
     <div></div>
 
-    <label>Department:</label>
+    <label><b>Department</b></label>
     <registerContext.Provider  value={[]}>
         <departmentDropdownContext.Provider value={[formData,setFormData]}>
             <DepartmentDropDown />

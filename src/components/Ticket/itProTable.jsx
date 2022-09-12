@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { ticketTableContext } from "../../App";
 import addAuthToken from "../../common/remote/addAuthHeader";
@@ -14,7 +14,8 @@ export default function ItProTable (){
         status: ""
     });
 
-async function resolvedTicket(t){
+    async function resolvedTicket(t){
+    
     try {
         addAuthToken();
         console.log(t);

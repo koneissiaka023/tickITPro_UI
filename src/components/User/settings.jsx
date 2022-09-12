@@ -24,18 +24,22 @@ export default function Settings() {
     async function changeUserInformation(r) {
         r.preventDefault();
         try{
-            const tempForm = {...formData, id: id}
+            const tempForm = {...formData};
+            const tempState = {...userState};
+
+            tempForm.id = id;
             setFormData(tempForm);
-            const response = await tickITProClient.put("/user", formData);
-            userState = {...userState, email: response.data.email};
-            dispatch(loginStore(userState));
+            
+            console.log(tempForm);
+            const response = await tickITProClient.put("/user", tempForm);
+            console.log(response.data);
+
+            tempState.email = response.data.email;
+
+            dispatch(loginStore(tempState));
             setMessage(`User was successfully updated! ${response.data.userId}`);
         } catch (error){
             console.log(error);
-
-            if(error.response.status === 400){
-                setMessage(`Could not update user: ${error.response.data}`);
-            }
         }
     }
     return (

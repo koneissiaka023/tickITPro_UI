@@ -40,13 +40,13 @@ export default function TicketPoolTable() {
     return (
         
         <>
-            <button onClick={renderTable}>Show Ticket Table</button>
+            <button className="tableButton" onClick={renderTable}>Show Ticket Table</button>
             {showTable === true ? (
-                <table sx={{ maxWidth: 1000 }} style={{ border: "black solid" }} align="center">
+                <table align="center">
                     <thead>
                         <tr>
                             <th align="center">Submission Date</th>
-                            <th align="center">Subject ID</th>
+                            <th align="center">Subject</th>
                             <th align="center">Description</th>
                             <th align="center">Priority</th>
                             <th align="center">Status</th>

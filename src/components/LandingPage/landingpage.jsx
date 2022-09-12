@@ -4,22 +4,20 @@ import Register from "../login-register/register";
 export default function LandingPage() {
     return (
         <>
-            <div className = "tickitproName">
-                <h1>TickItPro</h1>
-            </div>
-            {/* <div class = "technicalSupport">
-                <img src="./technicalSupport.jpeg" alt="tickitpro logo" />
-            </div> */}
-            <div className="layout">
-                <ul>
-                    {/* <li><a class="active" href="#home">Home</a></li> */}
-                    {/* <li><a href="#login">Login</a></li> */}
-                    <Login></Login>
-                    {/* <button>Login</button> */}
-                    <Register></Register>
-                    {/* <li><a href="#register">Register</a></li> */}
-                </ul>
-            </div>
+            <div className="background_image">
+                <div className="layout">
+                    <ul className="login_button">
+                        <div>
+                            <Login></Login>
+                        </div>
+                    </ul>
+                    <ul>
+                        <div className="register_button">
+                            <Register></Register>
+                        </div>
+                    </ul>
+                </div>
+            </div>    
         </>
     );
 }

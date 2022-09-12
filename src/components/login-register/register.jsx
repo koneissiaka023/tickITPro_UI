@@ -42,48 +42,51 @@ return (
 <>  
     <form> 
         {/* <img ></img> */}
-        <label>Email:</label>
+        <label for="email"><b>Email</b></label>
         <input
             className="registration"
             placeholder="example@mail.com"
             onChange = {(e) => {
                 setFormData({...formData, email: e.target.value});
             }}
+            type="text"
         />
         <div></div>
-
-        <label>First Name:</label>
+        <label for="firstName"><b>First Name</b></label>
         <input
             className="registration"
             placeholder="Jane"
             onChange = {(e) => {
                 setFormData({...formData, firstName: e.target.value});
             }}
+            type="text"
         />
         <div></div>
 
-        <label>Last Name:</label>
+        <label for="lastName"><b>Last Name</b></label>
         <input
             className="registration"
             placeholder="Doe"
             onChange = {(e) => {
                 setFormData({...formData, lastName: e.target.value});
             }}
+            type="text"
         /> 
     <div></div> 
 
-    <label>Password:</label>
+    <label for="paswd"><b>Password</b></label>
     <input
         className="registration"
         placeholder="Password"
         onChange = {(e) => {
             setFormData({...formData, password: e.target.value});
         }}
+        type="text"
     />
     <div></div>
 
     <label>Department:</label>
-    <registerContext.Provider>
+    <registerContext.Provider  value={[]}>
         <departmentDropdownContext.Provider value={[formData,setFormData]}>
             <DepartmentDropDown />
         </departmentDropdownContext.Provider>

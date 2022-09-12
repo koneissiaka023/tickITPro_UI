@@ -15,7 +15,7 @@ export default function AdminDepartmentEditor() {
             </p>
 
             <departmentEditorRenderContext.Provider value = {{creation,setCreation}}>
-                <EditDepartment></EditDepartment>
+                {/*<EditDepartment></EditDepartment>*/}
             </departmentEditorRenderContext.Provider>
         </>
     );

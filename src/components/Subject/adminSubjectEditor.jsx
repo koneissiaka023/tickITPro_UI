@@ -1,10 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import EditSubject from "./editSubject";
 
 export const subjectEditorRenderContext = createContext();
 
 export default function AdminSubjectEditor() {
     const [creation,setCreation] = useState();
+
+    useEffect(() => {
+        console.log("effect invoked inside of createContext");
+    }, [creation]);
 
     return (
         <>

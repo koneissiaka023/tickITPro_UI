@@ -13,10 +13,11 @@ export default function UserDashboard() {
 
     return (
     <>
-        <h1>Welcome to Your TickITPro Dashboard!</h1>
-        <p>
-            Tickets you create will be submitted under the account: {email}
-        </p>
+        <div>
+            <h1>Welcome to Your TickITPro Dashboard!</h1>
+            <p>Tickets you create will be submitted under the account: {email}</p>
+        </div>
+        
         <dashboardRenderContext.Provider value={[creation,setCreation]}>
             <CreateTicket />
             <TicketPoolTable />

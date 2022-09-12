@@ -2,22 +2,17 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { departmentDropdownContext } from "../../App";
 import { tickITProClient } from "../../common/remote/tickitpro-client";
 import DepartmentDropdownData from "./departmentDropdownData";
-<<<<<<< HEAD
-=======
-import { registerContext } from "../login-register/register";
 import addAuthToken from "../../common/remote/addAuthHeader";
->>>>>>> 32474ef287b0fe209fe07094d0aeb609c02317f6
-
 export const departmentContext = createContext();
 
 export default function DepartmentDropDown() {
     const [departments, setDepartments] = useState();
-    const [formData, setFormData] = useContext(departmentDropdownContext);
+    const [formData, setFormData, creation] = useContext(departmentDropdownContext);
 
     useEffect(() => {
         console.log("effect invoked inside DepartmentDropDown");
         findAll();
-    }, []);
+    }, [creation]);
 
     async function findAll() {
         try {
@@ -25,7 +20,7 @@ export default function DepartmentDropDown() {
             const response = await tickITProClient.get("/department");
             console.log(response.data);
             setDepartments(response.data);
-            setFormData({...formData, departmentId: response.data[0].departmentId});
+            setFormData({...formData, departmentId: ""});
         } catch (error) {
             console.error(error);
         }
@@ -38,6 +33,7 @@ export default function DepartmentDropDown() {
 
     return (
         <select onChange={updateDepartment} name="departmentDropdown" id="departmentDropdown">
+            <option key="" defaultValue="">Select an Option</option>
             <departmentContext.Provider value={[departments, setDepartments]}>
                 {departments === undefined || < DepartmentDropdownData/>}
             </departmentContext.Provider>

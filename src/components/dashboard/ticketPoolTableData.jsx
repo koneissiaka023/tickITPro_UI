@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { useSelector } from "react-redux";
+import { tickITProClient } from "../../common/remote/tickitpro-client";
 import DeleteTicketFromPool from "./deleteTicketFromPool";
 import { ticketContext } from "./ticketPoolTable";
 

@@ -5,8 +5,7 @@ import EditDepartment from "./editDepartment";
 export const departmentEditorRenderContext = createContext()
 
 export default function AdminDepartmentEditor() {
-
-    const [creation, setCreation] = useState()
+    const [creation, setCreation] = useState();
 
     useEffect(() => {
         console.log("effect invoked inside of createContext");
@@ -19,8 +18,8 @@ export default function AdminDepartmentEditor() {
                 Select a department from the dropdown to edit/delete it, or create a new department.
             </p>
 
-            <departmentEditorRenderContext.Provider value = {{creation,setCreation}}>
-                <EditDepartment></EditDepartment>
+            <departmentEditorRenderContext.Provider value = {[creation,setCreation]}>
+                <EditDepartment />
             </departmentEditorRenderContext.Provider>
         </>
     );

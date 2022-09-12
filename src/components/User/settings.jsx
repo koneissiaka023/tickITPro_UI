@@ -9,9 +9,11 @@ export const settingsContext = createContext();
 
 export default function Settings() {
     const userState = useSelector((state) => state.loginSlice);
+    const id = useSelector((state) => state.loginSlice.id);
     const [message, setMessage] = useState();
     const dispatch = useDispatch();
     const [formData, setFormData] = useState({
+        id: "",
         email: "",
         firstName: "",
         lastName: "",
@@ -22,10 +24,10 @@ export default function Settings() {
     async function changeUserInformation(r) {
         r.preventDefault();
         try{
-            console.log(formData);
-            console.log(userState);
+            const tempForm = {...formData, id: id}
+            setFormData(tempForm);
             const response = await tickITProClient.put("/user", formData);
-            console.log(response.data);
+            userState = {...userState, email: response.data.email};
             dispatch(loginStore(userState));
             setMessage(`User was successfully updated! ${response.data.userId}`);
         } catch (error){

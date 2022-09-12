@@ -15,7 +15,6 @@ export default function ItProTable (){
     });
 
 async function resolvedTicket(t){
-    
     try {
         addAuthToken();
         console.log(t);

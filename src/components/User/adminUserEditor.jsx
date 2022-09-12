@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import UserTable from "./userTable";
 
 export const userEditorRenderContext = createContext();
 
@@ -16,7 +17,7 @@ export default function AdminUserEditor() {
                 Update User roles next to their profile
             </p>
             <userEditorRenderContext.Provider value={[creation,setCreation]}>
-                
+                <UserTable />
             </userEditorRenderContext.Provider>
         </>
     );

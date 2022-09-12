@@ -17,8 +17,6 @@ export default function EditSubject() {
         name: ""
     });
 
-
-
     async function updateSubject(s) {
         s.preventDefault();
         try {

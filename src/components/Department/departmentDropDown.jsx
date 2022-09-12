@@ -34,8 +34,12 @@ export default function DepartmentDropDown() {
     }
 
     return (
-        <select onChange={updateDepartment} name="departmentDropdown" id="departmentDropdown">
-            <option key="" defaultValue="">Select an Option</option>
+        <select
+        onChange={updateDepartment}
+        name="departmentDropdown"
+        id="departmentDropdown"
+        defaultValue={""}>
+            <option key="" value="">Select an Option</option>
             <departmentContext.Provider value={[departments, setDepartments]}>
                 {departments === undefined || < DepartmentDropdownData/>}
             </departmentContext.Provider>
